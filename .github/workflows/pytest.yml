@@ -1,0 +1,39 @@
+name: pytest
+
+# Runs the full art-paper test suite. The repo-root conftest.py quarantines the
+# ARS-era content-lint suites pending an art-genre rewrite (see conftest.py),
+# so a clean checkout is green.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: pytest-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt pytest
+
+      - name: Run art-paper test suite
+        env:
+          PYTHONPATH: .
+        run: pytest -q

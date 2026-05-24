@@ -1,0 +1,79 @@
+%% CRS minimal art-paper skeleton — SIGGRAPH Asia Art Papers (acmart).
+%% Demonstrates the canonical CRS output path: acmart sigconf + ACM Reference
+%% Format, Practice-Based Art Paper structure (Pattern 1), and the genre-specific
+%% artwork citation (@misc with venue+date as the L3 locator).
+%%
+%% Build:  latexmk -pdf paper.tex      (or: pdflatex; bibtex; pdflatex x2)
+%% Requires the ACM `acmart` package (CTAN / texlive-publishers). Verify the
+%% exact class option for the current SIGGRAPH Asia Art Papers track CFP;
+%% `sigconf` is the CRS default.
+\documentclass[sigconf,nonacm]{acmart}
+
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\acmConference[SA Art Papers '26]{SIGGRAPH Asia Art Papers}{2026}{(verify venue/date against the current CFP)}
+
+\begin{document}
+
+\title{A Practice-Based Art Paper Skeleton}
+\subtitle{Canonical CRS acmart output (template, not a submission)}
+
+\author{Artist Name}
+\affiliation{\institution{Studio / Institution}\country{Country}}
+\email{artist@example.org}
+
+\begin{abstract}
+This skeleton exercises the Creative Research Skills (CRS) output path: an
+\texttt{acmart} \texttt{sigconf} document, ACM Reference Format citations, the
+Practice-Based Art Paper structure, and a genre-specific artwork citation. In a
+real paper this abstract states the work, its provocation, the essential making
+gesture, the situated insight, and the contribution to the art-and-technology
+discourse, in roughly 120--200 words.
+\end{abstract}
+
+\keywords{practice-based research, media art, generative art}
+
+\maketitle
+
+\section{Introduction / Context}
+The work in one paragraph; its artistic and conceptual context; the provocation
+it pursues; and the contribution this paper makes. Precedent work is positioned
+here, e.g. a precedent artwork~\cite{precedentArtwork} and relevant
+theory~\cite{leonardoArticle}.
+
+\section{Conceptual Framework}
+The theoretical grounding, the relationship to precedent artworks and artists,
+and the key concepts and their definitions. The \emph{artwork is the primary
+evidence}; the framework is what the work argues through.
+
+\section{The Work}
+Form, materials, media, scale, duration; what the audience perceives or does;
+authorship and collaboration credit.
+
+\section{Realization / Methods of Making}
+The technical approach, the process and its iterations, and the tools and
+dependencies. Technical claims (``real-time'', ``autonomous'') are anchored to
+this section, never asserted without realization evidence~\cite{siggraphWork}.
+
+\section{Reflection / Discussion}
+What the making revealed (situated insight); exhibition and reception with
+observable anchors (named venue + date, not ``audiences were moved''); relation
+back to the framework; limitations and open questions.
+
+\section{Conclusion}
+What the work opens up, and the future trajectory.
+
+\begin{acks}
+\textbf{Use of AI Tools.} In producing \emph{this paper}, the authors used
+AI-assisted tooling (Creative Research Skills) for drafting and citation
+formatting. [If applicable:] as part of \emph{the artwork itself}, generative AI
+was used as a medium, described in the realization section above. The authors
+reviewed all content and take full responsibility for it. No AI system is an
+author of this work. (Verify wording against the current ACM / SIGGRAPH Asia
+policy.)
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\end{document}

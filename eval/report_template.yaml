@@ -1,0 +1,47 @@
+# art-paper reconstruction-benchmark report.
+# Conforms to shared/benchmark_report.schema.json. Fill one per pilot run (or an
+# aggregate). The §7 honesty fields are mandatory — empty `caveats` is forbidden.
+#
+# Validate after filling:
+#   python -c "import json,yaml,jsonschema; jsonschema.validate(yaml.safe_load(open('REPORT.yaml')), json.load(open('shared/benchmark_report.schema.json')))"
+
+ars_version: "0.1.0"            # art-paper suite version under test (schema field name is historical)
+
+task_definition:
+  description: >
+    Reconstruction benchmark: feed art-paper only the transferable pre-writing materials
+    (documentation, process notes, exhibition record, concept memo, bibliography)
+    extracted from a held-out published art paper, and instrument the reconstruction
+    against the held-out gold. Measures which layers converge; does NOT score quality.
+  task_type: open-ended
+  outcome_gradable: false
+
+human_baseline:
+  # In a reconstruction benchmark the "human" work is the input/gold extraction.
+  sample_size: 1               # REPLACE: N papers extracted (schema minimum 1)
+  author_independence: author-conducted   # methodology §6: NOT blind; the author built the tool
+  hours_spent: 0               # REPLACE: human extraction hours
+  recruitment: "author / tool maintainer (per methodology §6 honest labelling)"
+  tools_allowed: ["manual extraction", "public proceedings"]
+
+ars_run:
+  hours_spent: 0               # REPLACE
+  cost_usd: 0                  # REPLACE: measured pipeline cost
+  skills_used: ["art-pipeline", "art-inquiry", "art-paper", "art-reviewer"]
+  data_access_level_declared: redacted   # REPLACE per run: raw / redacted / verified_only
+
+metrics:
+  # No single quality metric exists by design. The descriptive backbone of the §1.2
+  # thesis is the per-layer divergence gap (transferable_mean - generative_mean).
+  primary_metric: "per_layer_similarity divergence gap (transferable_mean - generative_mean) — DESCRIPTIVE, not quality"
+  primary_metric_value: 0.0    # REPLACE from instrumentation output
+  scoring_independence: authors-scored   # automated instrumentation + author analysis; NOT external-blind
+
+# §7 mandatory honesty disclosure. Keep every applicable caveat.
+caveats:
+  - "Instrumentation measures reconstruction, NOT quality. No claim of 'good art papers' is licensed."
+  - "Similarity is read in reverse: high text-overlap with gold is a contamination warning, not success."
+  - "scoring_independence is authors-scored: the author built the tool and saw the originals via extraction — not a blind external panel. A cross-model LLM judge provides an automated independent signal but is not external-blind."
+  - "Small pilot N; no external expert panel; results are a methodological pilot, not a capability benchmark."
+  - "Parametric contamination residual: published art papers may be in the model's training data; see per-case contamination_probe and post_cutoff segmentation."
+  - "Reconstruction ceiling: the lived experience of an artwork is non-transferable; generative layers (provocation, situated reflection) are expected to and should diverge."

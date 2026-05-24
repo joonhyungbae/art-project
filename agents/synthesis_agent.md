@@ -1,0 +1,1 @@
+../art-ideation/agents/synthesis_agent.md

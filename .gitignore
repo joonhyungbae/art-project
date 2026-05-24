@@ -1,0 +1,52 @@
+.DS_Store
+experiment-agent/
+docs/superpowers/
+
+# Local working context (codex review logs, hand-off prompts, brief drafts).
+# Anything under .context/ or .codex-rounds/ is per-session scratch and must
+# not be committed.
+.context/
+.codex-rounds/
+
+# Python bytecode / pytest cache.
+__pycache__/
+.pytest_cache/
+
+# LaTeX build artifacts (e.g. examples/art_paper_skeleton/). Keep .tex/.bib only.
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.cut
+examples/art_paper_skeleton/*.pdf
+
+# Private ROADMAP lives in claude-memory-sync (花花/roadmaps/), not this public repo
+ROADMAP.md
+
+# Local-only sibling clones, not part of this repo's release:
+#  - crs_paper/: separate acmart LaTeX working tree (maintainer-local)
+#  - ref/: pristine academic-research-skills reference clone, for diffing the fork
+crs_paper/
+ref/
+
+# Downloaded SIGGRAPH Asia Art Papers proceedings (copyrighted ACM PDFs, large).
+# Local-only — never tracked in this repo. The methodology paper's pilot
+# selection / per-case numbers / extracted metadata index were also removed from
+# this repo (they belong in the separate crs_paper repo); keep them local.
+data/
+
+# Per-paper pilot cases derive from copyrighted ACM proceedings (gold
+# transcription + inputs extracted from them) and would carry author identity
+# information for the SIGGRAPH Asia Art Papers reviewed. Keep them local; this
+# plugin repo no longer ships pilot data — `eval/` retains only the
+# instrumentation engine + synthetic test fixture.
+eval/pilot/sa*/
+
+# art-project_paper/ is a separate sibling git repo for the Aslib JIM
+# Conceptual paper. It lives in the same parent directory only for
+# maintainer convenience; do not track it from this repo.
+art-project_paper/
