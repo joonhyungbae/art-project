@@ -2,6 +2,11 @@
 experiment-agent/
 docs/superpowers/
 
+# Local environment / credentials (never tracked). .env.example is a tracked stub.
+.env
+.env.*
+!.env.example
+
 # Local working context (codex review logs, hand-off prompts, brief drafts).
 # Anything under .context/ or .codex-rounds/ is per-session scratch and must
 # not be committed.
@@ -50,3 +55,7 @@ eval/pilot/sa*/
 # Conceptual paper. It lives in the same parent directory only for
 # maintainer convenience; do not track it from this repo.
 art-project_paper/
+
+# MkDocs build output (deployed via GitHub Actions; not tracked in source).
+# The wiki source lives in wiki/ and is the canonical version.
+site/
