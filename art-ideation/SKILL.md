@@ -163,11 +163,12 @@ These rules implement the architectural commitments named in Claim B of the acad
 
 ## Inherited safety machinery (genre-neutral, from parent suite)
 
-- **Intent detection** every 3 turns (exploratory vs goal-oriented).
+- **Intent detection** — HARD-bound inside socratic mode (see [`commands/socratic.md`](../commands/socratic.md) "Intent detection (HARD)"); the every-3-turns sweep is the operational enforcement of IRON rule 1 in that mode, not a soft suite-wide heuristic.
 - **Concession Threshold Protocol** for the Devil's Advocate inside `rehearsal` (no premature concessions; concession only at rebuttal score ≥4 on the 1–5 scale).
-- **Dialogue Health Indicator** every 5 turns (agreement spirals, premature convergence, conflict avoidance — injects a challenge when pattern detected).
 - **L3 citation-faithfulness gate** on lineage entries (locator anchor per citation, no fabricated artists/exhibitions/theories).
 - **Routing discipline** + intent clarification protocol.
+
+> **v0.2 phase (c) demotion.** The former *Dialogue Health Indicator every 5 turns* rule is no longer an IRON-registry item. DHI demoted to Devil's Advocate sub-heuristic in [`commands/rehearsal.md`](../commands/rehearsal.md) (v0.2 phase c) — the only mode where the sweep actually does work.
 
 ## Measured-harm disclosure (model-card style)
 
