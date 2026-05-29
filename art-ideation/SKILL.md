@@ -219,7 +219,7 @@ Six harm classes the skill tracks and discloses per [`POSITIONING.md`](../POSITI
 
 **Runtime-readiness audit on 2026-05-30** ([`docs/PLUGIN-RUNTIME-READINESS-AUDIT.md`](../docs/PLUGIN-RUNTIME-READINESS-AUDIT.md)) found that no command file in `commands/` currently dispatches any agent in `art-ideation/agents/` by name. The skill prompts in this file and the command-file prompts are what Claude executes at runtime; the agents are present for future-version dispatch and for human reference, not invoked in the v0.1 critical path.
 
-Four agents have been rewritten to v0.2 mode semantics and four are still in the v0.1-paper-pipeline framing they were forked from. The table below names which is which so that no reader is misled about coverage.
+Four agents have been rewritten to v0.2 mode semantics; four others — still in the v0.1-paper-pipeline framing they were forked from — have been archived under `art-ideation/agents/deprecated/` as part of v0.2 phase (d). The table below lists only the v0.2-aligned agents.
 
 | Agent | v0.2 alignment | Notes |
 |---|---|---|
@@ -227,12 +227,8 @@ Four agents have been rewritten to v0.2 mode semantics and four are still in the
 | `bibliography_agent.md` | **v0.2-aligned (partial)** | Used as a lineage-mode reference; East-Asian default-routing wiring is documented in the command file (`commands/lineage.md`), not in this agent. |
 | `devils_advocate_agent.md` | **v0.2-aligned** | Concession Threshold Protocol intact; reused by `rehearsal`. |
 | `editor_in_chief_agent.md` | **v0.2-aligned (partial)** | Chair-synthesis function intact; full formative-not-decisional reshape pending. |
-| `research_question_agent.md` | **DRIFT (deprecated)** | Still in academic-research-pipeline framing (FINER scoring, "art-jury chair" voice, references nonexistent `phaseN_*/` dirs). Not dispatched by any v0.1 command. Retained as historical artefact; do not invoke. |
-| `source_verification_agent.md` | **DRIFT (deprecated)** | ARS Phase-2 framing; references nonexistent `shared/references/art_research_evidence_model.md` and `acm_reference_format.md`. Not dispatched by any v0.1 command. Retained as historical artefact; do not invoke. |
-| `synthesis_agent.md` | **DRIFT (deprecated)** | ARS Phase-3 framing; references nonexistent `art_research_evidence_model.md` and `word_count_conventions.md`. Symlinked from `agents/synthesis_agent.md` at the suite root; that suite-level role is preserved, but the in-skill copy is not v0.2-aligned. Not dispatched by any v0.1 command. |
-| `monitoring_agent.md` | **DRIFT (deprecated)** | Academic literature-monitoring agent; zero mentions of v0.2 modes. Earlier drafts of this table assigned it to `full` mode's cross-session state; that assignment was incorrect and is retracted. The `full` mode's project-file management is currently honour-system, not agent-mediated. |
 
-**What this means in practice.** For v0.1 runtime, treat the SKILL.md mode sections and the command-file prompts as the source of truth. The four DRIFT-deprecated agents will be either deleted or rewritten in v0.2; until then their presence in the `agents/` directory is a historical-archive convenience, not a runtime asset.
+**What this means in practice.** For v0.1 runtime, treat the SKILL.md mode sections and the command-file prompts as the source of truth. The four deprecated agents (`research_question_agent.md`, `source_verification_agent.md`, `synthesis_agent.md`, `monitoring_agent.md`) now live under [`art-ideation/agents/deprecated/`](agents/deprecated/) and are archived for a v0.3 rewrite-or-delete decision; they are not dispatched by any v0.1 command and should not be invoked.
 
 The v0.2 agent-rewrite plan lives at [`docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md`](../docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md) §7.
 
