@@ -40,7 +40,26 @@ to surface your own blind spots before submitting work to actual reviewers.
 
 **Persona-collapse detector** *(v0.1: heuristic, not measured).* After all four personas have spoken, examine their top concerns. If all four raise the *same* concern (e.g. all four worry about feasibility, or all four worry about lineage), flag *"panel collapse — personas have converged on a single voice, indicating the rehearsal has lost its diversity. Try changing the Brief or restarting."* This is a qualitative check at v0.1, not a measured similarity score; subtle collapse may fail silently and an external reader remains the corrective.
 
-**Architectural friction (honour-system at v0.1).** The plugin has no session-history mechanism in v0.1. The friction works as a *prompted self-report*: **before generating the rehearsal output, ask the artist: "Has this concept been rehearsed in the last 14 days? If so, how many times?"** If the answer is two or more, deliver the friction warning verbatim before proceeding: *"You have rehearsed this concept multiple times. Consider showing it to an external reader before further rehearsal — the marginal value of additional rehearsal is low compared to one round of real feedback. Proceed anyway?"* If the artist says yes, proceed; if no, end the session. **The plugin cannot detect rehearsal frequency on its own at v0.1** (architectural session-history is v0.2 work). This honour-system protocol is the honest substitute, named here so artists and reviewers know what the warning actually is.
+**Architectural friction (consultative log at v0.2).** The friction is backed by a real append-only log at `~/.art-project/rehearsal-log.jsonl` — one JSON object per line, schema `{"timestamp":"<ISO-8601 UTC>","brief_codename":"<artist-supplied codename or 'untitled'>","brief_hash":"<sha-256 of brief text, hex, optional>","outcome":"<completed | aborted-after-warning | aborted-by-friction>"}`. The warning is **consultative, not blocking** — the artist can always proceed; the v0.2 upgrade is that the count comes from runtime state rather than the artist's memory.
+
+**On invocation (before generating any rehearsal output):**
+
+1. **Ask the artist for the brief codename** explicitly, verbatim: *"What codename does this concept use in your project file or notes?"* Default `untitled` is acceptable; if the artist accepts the default, warn them once: *"Note: `untitled` collisions across separate projects will produce spurious warnings — consider a project-specific codename if you rehearse multiple briefs."*
+2. **Ensure `~/.art-project/` exists.** If the directory is missing, create it (`mkdir -p ~/.art-project`).
+3. **Read `~/.art-project/rehearsal-log.jsonl`** if present. Parse one JSON object per line; tolerate empty files.
+4. **Filter** entries where `brief_codename` equals the codename the artist just supplied **AND** `timestamp` is within the last 14 days (now − 14d ≤ timestamp ≤ now, UTC).
+5. **If the filtered count is ≥ 2**, fire the friction warning verbatim and ask the artist to confirm before proceeding:
+
+   > *"You have rehearsed this concept multiple times. Consider showing it to an external reader before further rehearsal — the marginal value of additional rehearsal is low compared to one round of real feedback. Proceed anyway?"*
+
+   If the artist declines, end the session and append a JSONL entry with `outcome: "aborted-by-friction"`. If the artist proceeds, continue to the rehearsal and append with `outcome: "completed"` or `outcome: "aborted-after-warning"` per how the session ends.
+6. **If the filtered count is < 2**, proceed silently to the rehearsal.
+
+**On output (after the rehearsal completes, whether the artist proceeded or aborted mid-rehearsal):** append exactly one new JSONL entry to `~/.art-project/rehearsal-log.jsonl` with the current UTC timestamp, the codename, the optional sha-256 of the brief text (if a brief was supplied), and the outcome.
+
+**Graceful fallback.** If the log file is missing, unreadable, malformed, or the directory cannot be created, do **not** block the rehearsal. Instead: (a) produce the rehearsal as normal, (b) prompt the artist once: *"Log unavailable; relying on your self-report — has this concept been rehearsed in the last 14 days? If so, how many times?"* (c) if the artist reports ≥ 2, emit the friction warning verbatim per step 5 above, (d) attempt to create a fresh log file and append the current session's entry. Surface any I/O error to the artist in one line so they know the log is degraded.
+
+**Why consultative.** The plugin remembers; the plugin prompts; the plugin does **not** enforce. The artist always owns the decision to proceed. The upgrade from v0.1's honour-system is purely epistemic — the warning now fires from real state, not from the artist's recall — but the warning's status as advisory is unchanged.
 
 **Output is re-entrant into the Brief.** Each critique line is paired with: *"Re-enter Brief field X with this concern."* The rehearsal does not stand alone as judgement; it is *material to process back into the Brief*. Conclude by listing the Brief fields the artist should revisit, with the specific concerns flagged.
 
