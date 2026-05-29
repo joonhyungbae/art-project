@@ -1,5 +1,4 @@
 ---
-name: art-lineage
 description: "Lineage Map extending artist-supplied initial candidates. Tagged kin / opposition / blind-spot / unexpected-neighbor. Mandatory training-data bias header. Korean / East-Asian default routing on Korean sessions. Lineage is retrieval, NOT ideation."
 model: sonnet
 ---

@@ -6,12 +6,12 @@
 
 | 모드 | 슬래시 명령 | 산출물 | 감독 강도 |
 |---|---|---|---|
-| [Socratic](socratic.md) | `/art-socratic` | 대화 + Concept Pull Map | Very High |
-| [Provoke](provoke.md) | `/art-provoke` | 전통-태그된 provocation set (8–20 카드) | High |
-| [Lineage](lineage.md) | `/art-lineage` | Lineage Map (5–15 선례, kin / opposition / blind-spot 태그) | Medium |
-| [Brief](brief.md) | `/art-brief` | 10-필드 Concept Brief | High |
-| [Rehearsal](rehearsal.md) | `/art-rehearsal` | 자기-비평 rehearsal transcript (4 페르소나) | High |
-| [Full](full.md) | `/art-ideate` | 여러 세션에 걸친 장기 프로젝트 파일 | Very High |
+| [Socratic](socratic.md) | `/art-project:socratic` | 대화 + Concept Pull Map | Very High |
+| [Provoke](provoke.md) | `/art-project:provoke` | 전통-태그된 provocation set (8–20 카드) | High |
+| [Lineage](lineage.md) | `/art-project:lineage` | Lineage Map (5–15 선례, kin / opposition / blind-spot 태그) | Medium |
+| [Brief](brief.md) | `/art-project:brief` | 10-필드 Concept Brief | High |
+| [Rehearsal](rehearsal.md) | `/art-project:rehearsal` | 자기-비평 rehearsal transcript (4 페르소나) | High |
+| [Full](full.md) | `/art-project:ideate` | 여러 세션에 걸친 장기 프로젝트 파일 | Very High |
 
 ## 기본 라우팅 규칙
 
@@ -51,7 +51,7 @@ v0.1에서는 rehearsal 모드를 `panel`로 명명했습니다. 변경은 *meth
 
 모드 전환은 명시적입니다. `socratic`에서 `provoke`로 전환할 때 플러그인은 침묵으로 행동을 바꾸지 않고 전환을 명시합니다. 이것이 **모드 전환 투명성** 규칙입니다.
 
-`/art-ideate`(full 프로젝트 파일)로 시작하면 파일이 각 세션이 어느 모드였는지 추적하므로 cross-session 전환을 감사할 수 있습니다.
+`/art-project:ideate`(full 프로젝트 파일)로 시작하면 파일이 각 세션이 어느 모드였는지 추적하므로 cross-session 전환을 감사할 수 있습니다.
 
 ## 참고
 

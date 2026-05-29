@@ -24,12 +24,12 @@ The plugin's single skill. Six modes scaffold the **propositional articulation w
 ## Quick Start
 
 **Slash commands** (when the artist knows the mode):
-- `/art-socratic` — guided dialogue, surface impulse / fragments / constraints / refusals / residue
-- `/art-provoke` — tradition-tagged provocations with preserved unhelpfulness
-- `/art-lineage` — extend artist-supplied lineage candidates (kin / opposition / blind-spot / unexpected-neighbor)
-- `/art-brief` — Concept Brief with epistemic fields, stay-rough default
-- `/art-rehearsal` — Self-Critique Rehearsal (formative, not decisional)
-- `/art-ideate` — open or continue a long-running project file
+- `/art-project:socratic` — guided dialogue, surface impulse / fragments / constraints / refusals / residue
+- `/art-project:provoke` — tradition-tagged provocations with preserved unhelpfulness
+- `/art-project:lineage` — extend artist-supplied lineage candidates (kin / opposition / blind-spot / unexpected-neighbor)
+- `/art-project:brief` — Concept Brief with epistemic fields, stay-rough default
+- `/art-project:rehearsal` — Self-Critique Rehearsal (formative, not decisional)
+- `/art-project:ideate` — open or continue a long-running project file
 
 **Natural-language entry** (when the artist doesn't know the mode):
 ```

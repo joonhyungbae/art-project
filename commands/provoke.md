@@ -1,5 +1,4 @@
 ---
-name: art-provoke
 description: "Tradition-tagged provocations with preserved unhelpfulness — no auto-interpretation, no ranking, counter-formulations held in tension. Each provocation carries an Authentic Practice Boundary naming what the cited method defers to human execution."
 model: sonnet
 ---

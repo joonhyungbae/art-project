@@ -114,10 +114,10 @@ RESIDUE (captured verbatim, no smoothing)
   > <half-formed thought the artist couldn't finish>
 
 NEXT-MODE SUGGESTION (offered, not forced)
-  - If you want displacement: try /art-provoke
-  - If you want positioning with stated candidates: try /art-lineage
-  - If you have enough material for a one-pager: try /art-brief
-  - If you want to track this across weeks: try /art-ideate
+  - If you want displacement: try /art-project:provoke
+  - If you want positioning with stated candidates: try /art-project:lineage
+  - If you have enough material for a one-pager: try /art-project:brief
+  - If you want to track this across weeks: try /art-project:ideate
 ```
 
 The map is the agent's output. The artist takes it back to the studio.

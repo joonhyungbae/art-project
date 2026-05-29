@@ -1,6 +1,6 @@
 # Rehearsal 모드
 
-> 슬래시 명령: `/art-rehearsal` — 제출 전 초안 brief의 부담 테스트.
+> 슬래시 명령: `/art-project:rehearsal` — 제출 전 초안 brief의 부담 테스트.
 
 ## 무엇을 하는가
 

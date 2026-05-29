@@ -1,5 +1,4 @@
 ---
-name: art-ideate
 description: "Open or continue a long-running art-project file across multiple sessions (days/weeks apart). Smith & Dean iterative cyclic web in operational form. NOT a single-session pipeline. Each session does one mode at most; cross-session re-entry is first-class."
 model: opus
 ---

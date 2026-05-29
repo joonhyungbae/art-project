@@ -1,6 +1,6 @@
 # Provoke 모드
 
-> 슬래시 명령: `/art-provoke` — 부분적 컨셉이 있고 막혔을 때.
+> 슬래시 명령: `/art-project:provoke` — 부분적 컨셉이 있고 막혔을 때.
 
 ## 무엇을 하는가
 

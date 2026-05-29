@@ -1,6 +1,6 @@
 # Socratic 모드
 
-> 슬래시 명령: `/art-socratic` — 아직 컨셉은 없고 끌림만 있을 때.
+> 슬래시 명령: `/art-project:socratic` — 아직 컨셉은 없고 끌림만 있을 때.
 
 ## 무엇을 하는가
 
@@ -44,7 +44,7 @@ Socratic 대화를 통한 pre-reflective 표면화. **Concept Pull Map**을 산�
 ## 세션 오프너 예시
 
 ```text
-You: /art-socratic
+You: /art-project:socratic
 Plugin: [Socratic 모드 활성. 완성된 사유를 추출하기보다 미완성 사유를
         표면화하도록 설계된 질문을 던지겠습니다. 거칠게 — 단락이 아닌
         단편으로 쓰세요. Concept Pull Map으로 마무리합니다.]

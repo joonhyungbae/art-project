@@ -1,5 +1,4 @@
 ---
-name: art-socratic
 description: "Guided Socratic dialogue to surface impulse / fragments / constraints / refusals / residue before a work exists. Pre-reflective articulation (distinct from Schön's reflection-in-action). IRON RULE: no auto-convergence under exploratory intent."
 model: opus
 ---

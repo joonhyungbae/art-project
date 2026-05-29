@@ -31,12 +31,12 @@ It does **not** claim utility for artists whose articulation is already fluent, 
 
 | Mode | Slash command | When to use |
 |---|---|---|
-| `socratic` | `/art-socratic` | No concept yet, vague pull |
-| `provoke` | `/art-provoke` | Partial concept, feels stuck |
-| `lineage` | `/art-lineage` | Has candidate lineage, wants extension |
-| `brief` | `/art-brief` | Has enough material, needs a proposition document |
-| `rehearsal` | `/art-rehearsal` | Has a draft brief, wants stress-test before submission |
-| `full` | `/art-ideate` | Long-running project across weeks |
+| `socratic` | `/art-project:socratic` | No concept yet, vague pull |
+| `provoke` | `/art-project:provoke` | Partial concept, feels stuck |
+| `lineage` | `/art-project:lineage` | Has candidate lineage, wants extension |
+| `brief` | `/art-project:brief` | Has enough material, needs a proposition document |
+| `rehearsal` | `/art-project:rehearsal` | Has a draft brief, wants stress-test before submission |
+| `full` | `/art-project:ideate` | Long-running project across weeks |
 
 See [Modes overview](modes/overview.md) for details.
 

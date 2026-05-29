@@ -1,6 +1,6 @@
 # Socratic mode
 
-> Slash command: `/art-socratic` — for when there is no concept yet, only a pull.
+> Slash command: `/art-project:socratic` — for when there is no concept yet, only a pull.
 
 ## What it does
 
@@ -44,7 +44,7 @@ The map is a snapshot of the unfinished thought, not a roadmap.
 ## Example session opener
 
 ```text
-You: /art-socratic
+You: /art-project:socratic
 Plugin: [Socratic mode active. I'll ask questions designed to surface
         unfinished thought rather than extract finished thought. Stay
         rough — write fragments, not paragraphs. We'll end with a

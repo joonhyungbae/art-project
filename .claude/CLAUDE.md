@@ -41,7 +41,7 @@ The shared reference layer lives in `shared/references/`:
 **Step 0 — Escape hatch:** if the user's first message begins with `[direct-mode]` (case-insensitive, byte-0 after whitespace strip), strip it and route directly per explicit intent.
 
 Otherwise classify:
-1. **Explicit clear intent** — `/art-*` slash command or unambiguous trigger ("guide me through a new project", "draft a concept brief", "rehearse critique") → route directly.
+1. **Explicit clear intent** — `/art-project:*` slash command or unambiguous trigger ("guide me through a new project", "draft a concept brief", "rehearse critique") → route directly.
 2. **Ambiguous, no materials** → clarify per [`intent_clarification_protocol.md`](../shared/references/intent_clarification_protocol.md).
 3. **Cross-mode materials** → suggest the most upstream applicable mode and let the artist confirm.
 

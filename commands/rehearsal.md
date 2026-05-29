@@ -1,5 +1,4 @@
 ---
-name: art-rehearsal
 description: "Self-Critique Rehearsal (renamed from panel in v0.2). Four personas (Curator + Practitioner-peer + Theorist + Devil's Advocate). Formative not decisional. Mandatory disclaimer, persona-collapse detector, architectural friction against repeated use."
 model: opus
 ---

@@ -44,8 +44,8 @@ When clarification fires, the main session emits a message in this shape (markdo
 ```markdown
 I see you've described <summary of what the user said / provided>. Which mode would help most?
 
-(a) **Socratic dialogue** — I'll ask questions to surface your impulses, constraints, and refusals. No deliverable until you signal ready. Use `/art-socratic`.
-(b) **Provocations** — I'll throw tradition-tagged what-ifs at you, then go silent so you can sit with them. Use `/art-provoke`.
+(a) **Socratic dialogue** — I'll ask questions to surface your impulses, constraints, and refusals. No deliverable until you signal ready. Use `/art-project:socratic`.
+(b) **Provocations** — I'll throw tradition-tagged what-ifs at you, then go silent so you can sit with them. Use `/art-project:provoke`.
 (c) **<one of: Lineage / Brief / Rehearsal / Full>** — <one-line description tuned to what the user said>. Use `/art-<mode>`.
 (d) **Something else** — describe what you're trying to do.
 
@@ -69,7 +69,7 @@ Pick a-d, or describe the target output. To skip this clarification, prefix your
 - **Bracket form:** Only the literal `[direct-mode]` (square brackets, hyphen between words) is recognised. Variants like `(direct-mode)`, `<direct-mode>`, `[direct mode]`, `[directmode]` are NOT recognised.
 - **Strip:** The literal token (with surrounding whitespace) is stripped before any downstream agent sees the message.
 - **Effect:** Bypasses the cross-mode-ambiguous and no-materials-ambiguous clarification triggers. Main session routes the stripped message directly per Explicit handling.
-- **Fallback:** If the stripped message still has no clear mode named, the Explicit step falls through to clarification. `[direct-mode]` bypasses cross-mode clarification, not all routing. If the artist wants to bypass even ambiguous-intent clarification, they must name a specific mode (e.g., `[direct-mode] /art-socratic`).
+- **Fallback:** If the stripped message still has no clear mode named, the Explicit step falls through to clarification. `[direct-mode]` bypasses cross-mode clarification, not all routing. If the artist wants to bypass even ambiguous-intent clarification, they must name a specific mode (e.g., `[direct-mode] /art-project:socratic`).
 
 ## Worked examples
 
@@ -83,9 +83,9 @@ Pick a-d, or describe the target output. To skip this clarification, prefix your
 **Main session response:**
 > Got it. Which mode would help most?
 >
-> (a) **Socratic dialogue** — I'll ask questions to surface your impulses, constraints, and refusals. No deliverable until you signal ready. Use `/art-socratic`.
-> (b) **Provocations** — I'll throw tradition-tagged what-ifs at you to see if any catch. Use `/art-provoke`.
-> (c) **Open a project file** — start a long-running file you can come back to over weeks. Use `/art-ideate`.
+> (a) **Socratic dialogue** — I'll ask questions to surface your impulses, constraints, and refusals. No deliverable until you signal ready. Use `/art-project:socratic`.
+> (b) **Provocations** — I'll throw tradition-tagged what-ifs at you to see if any catch. Use `/art-project:provoke`.
+> (c) **Open a project file** — start a long-running file you can come back to over weeks. Use `/art-project:ideate`.
 > (d) **Something else** — describe what you're trying to do.
 >
 > Pick a-d, or just say "start" and I'll begin in socratic mode (the safer default for this stage).
@@ -109,9 +109,9 @@ Pick a-d, or describe the target output. To skip this clarification, prefix your
 **Main session response:**
 > You have a draft concept and named lineage candidates, which is enough material to go several ways. Which would help most?
 >
-> (a) **Lineage mapping** — extend your candidates with kin / opposition / blind-spot / unexpected-neighbour entries, with a training-data bias header. Use `/art-lineage`.
-> (b) **Draft the Concept Brief** — write up the concept in proposition / anti-proposition / disconfirmation form with your stated lineage as one of the fields. Stay-rough default. Use `/art-brief`.
-> (c) **Provocations against the current concept** — see if there are angles you haven't considered before committing to the brief. Use `/art-provoke`.
+> (a) **Lineage mapping** — extend your candidates with kin / opposition / blind-spot / unexpected-neighbour entries, with a training-data bias header. Use `/art-project:lineage`.
+> (b) **Draft the Concept Brief** — write up the concept in proposition / anti-proposition / disconfirmation form with your stated lineage as one of the fields. Stay-rough default. Use `/art-project:brief`.
+> (c) **Provocations against the current concept** — see if there are angles you haven't considered before committing to the brief. Use `/art-project:provoke`.
 > (d) **Something else** — describe what you're trying to do.
 
 ### Example 4: `[direct-mode]` honored

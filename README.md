@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/badge/version-v0.1.0--ideation-blue)](https://github.com/joonhyungbae/art-project/releases)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
 
-> [한국어 README](README.ko-KR.md)
+> [한국어 README](README.ko-KR.md) · 📖 Wiki: [English](https://joonhyungbae.github.io/art-project/) / [한국어](https://joonhyungbae.github.io/art-project/ko/)
 
 A Claude Code plugin: a **pre-studio articulation scaffold** for practice-based artistic research. **Not an ideation engine.** The Penny / Ingold / Borgdorff critique that artistic ideation is non-linguistic, material, and inseparable from making is *accepted*; the plugin scopes itself to the propositional articulation work *around* ideation. The actual ideation happens in your studio, with material.
 
@@ -21,8 +21,8 @@ This plugin is the v0.2 synthesis of a four-agent design critique (artistic-rese
 That installs one skill (`art-ideation`) plus six `/art-*` slash commands. No LaTeX toolchain required — v0.1 outputs Markdown by default.
 
 Then try one of:
-- `/art-socratic` — *"I have a vague pull toward something, I don't know what the work is yet"*
-- `/art-provoke` — *"I'm stuck, throw constraints at me"*
+- `/art-project:socratic` — *"I have a vague pull toward something, I don't know what the work is yet"*
+- `/art-project:provoke` — *"I'm stuck, throw constraints at me"*
 - Or natural language: *"I want to think through a new project"* — the skill auto-routes via intent detection and announces the routing transparently.
 
 See [QUICKSTART.md](QUICKSTART.md) for full first-session walkthroughs of each mode.
@@ -35,12 +35,12 @@ One skill, six modes. Each mode wires to specific entries in a 25+ entry methodo
 
 | Mode | What it does | IRON RULE |
 |---|---|---|
-| `/art-socratic` | Pre-reflective dialogue surfacing impulse / fragments / constraints / refusals / **residue** | No auto-convergence under exploratory intent |
-| `/art-provoke` | Tradition-tagged provocations (Oblique Strategies / SCAMPER / Cage chance / Bolt experimental gesture / Dunne & Raby PPPP / etc.) with **Authentic Practice Boundary** per method | Preserved **unhelpfulness** — silence after the provocation; no auto-interpretation |
-| `/art-lineage` | Lineage Map extending **artist-supplied** initial candidates (kin / opposition / blind-spot / unexpected-neighbor) | Mandatory training-data bias header; Korean / East-Asian default routing on Korean sessions; honest self-description as *retrieval, not ideation* |
-| `/art-brief` | Concept Brief with epistemic fields (proposition / **anti-proposition** / **disconfirmation condition** / **Frayling-type declaration**) | **Stay-rough** default — your voice stays in; **no auto-completion** of gaps |
-| `/art-rehearsal` | Self-Critique Rehearsal (renamed from `panel` in v0.2) — Curator + Practitioner-peer + Theorist + Devil's Advocate | Mandatory disclaimer header; architectural friction after 2 invocations / 14 days on same concept; persona-collapse detector |
-| `/art-ideate` | Long-running project file across days/weeks (Smith & Dean iterative cyclic web) | One mode per session; no single-session pipelining |
+| `/art-project:socratic` | Pre-reflective dialogue surfacing impulse / fragments / constraints / refusals / **residue** | No auto-convergence under exploratory intent |
+| `/art-project:provoke` | Tradition-tagged provocations (Oblique Strategies / SCAMPER / Cage chance / Bolt experimental gesture / Dunne & Raby PPPP / etc.) with **Authentic Practice Boundary** per method | Preserved **unhelpfulness** — silence after the provocation; no auto-interpretation |
+| `/art-project:lineage` | Lineage Map extending **artist-supplied** initial candidates (kin / opposition / blind-spot / unexpected-neighbor) | Mandatory training-data bias header; Korean / East-Asian default routing on Korean sessions; honest self-description as *retrieval, not ideation* |
+| `/art-project:brief` | Concept Brief with epistemic fields (proposition / **anti-proposition** / **disconfirmation condition** / **Frayling-type declaration**) | **Stay-rough** default — your voice stays in; **no auto-completion** of gaps |
+| `/art-project:rehearsal` | Self-Critique Rehearsal (renamed from `panel` in v0.2) — Curator + Practitioner-peer + Theorist + Devil's Advocate | Mandatory disclaimer header; architectural friction after 2 invocations / 14 days on same concept; persona-collapse detector |
+| `/art-project:ideate` | Long-running project file across days/weeks (Smith & Dean iterative cyclic web) | One mode per session; no single-session pipelining |
 
 ---
 

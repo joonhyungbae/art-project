@@ -1,6 +1,6 @@
 # Brief mode
 
-> Slash command: `/art-brief` — for when you have enough material for a proposition document.
+> Slash command: `/art-project:brief` — for when you have enough material for a proposition document.
 
 ## What it does
 

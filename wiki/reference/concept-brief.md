@@ -83,7 +83,7 @@ This partition is fixed by the schema, not chosen after reconstruction. See the 
 
 By default, the brief preserves the artist's voice verbatim in any field that came from prior modes. Empty fields are reported as `[gap, not in input]`. The plugin does *not* smooth fragments into AI register, and does *not* fabricate content for empty fields.
 
-To request smoothing for submission, use `/art-brief --polish`. The flag is opt-in only.
+To request smoothing for submission, use `/art-project:brief --polish`. The flag is opt-in only.
 
 ## See also
 

@@ -11,7 +11,7 @@
 Claude Code에서:
 
 ```text
-/art-socratic
+/art-project:socratic
 ```
 
 플러그인이 짧게 자기소개 후 첫 Socratic 질문을 던집니다. "정답"을 쓰려 하지 마세요; 이 질문들은 미완성 사유를 끌어내도록 설계되었지, 완성된 사유를 추출하기 위한 게 아닙니다.
@@ -36,7 +36,7 @@ Concept Pull Map은 보통 세 가지 다음 행보 중 하나를 시사합니�
 - **특정 질문에 막혔다?** 전통-태그 provocation을 위해 `provoke`로 전환.
 - **염두에 둔 선례가 있다?** `lineage`로 전환.
 
-지금 결정하지 않아도 됩니다. 세션을 닫고 나중에 Concept Pull Map으로 돌아올 수 있습니다. `/art-ideate`(full 프로젝트 파일 모드)로 시작했다면 map은 세션 간에 보존됩니다.
+지금 결정하지 않아도 됩니다. 세션을 닫고 나중에 Concept Pull Map으로 돌아올 수 있습니다. `/art-project:ideate`(full 프로젝트 파일 모드)로 시작했다면 map은 세션 간에 보존됩니다.
 
 ## 첫 세션에서 하지 말 것
 
@@ -52,4 +52,4 @@ Concept Pull Map은 보통 세 가지 다음 행보 중 하나를 시사합니�
 
 ## 첫 세션 후
 
-6개 모드가 어떻게 연결되는지 보려면 [모드 개요](../modes/overview.md)를 읽으세요. 그다음 필요한 특정 모드를 선택하거나, 여러 세션에 걸쳐 상태를 추적하는 `/art-ideate` full 프로젝트 파일을 시작하세요.
+6개 모드가 어떻게 연결되는지 보려면 [모드 개요](../modes/overview.md)를 읽으세요. 그다음 필요한 특정 모드를 선택하거나, 여러 세션에 걸쳐 상태를 추적하는 `/art-project:ideate` full 프로젝트 파일을 시작하세요.

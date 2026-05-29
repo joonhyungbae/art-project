@@ -1,6 +1,6 @@
 # Full project file mode
 
-> Slash command: `/art-ideate` — for projects that span weeks or months across multiple sessions.
+> Slash command: `/art-project:ideate` — for projects that span weeks or months across multiple sessions.
 
 ## What it does
 
@@ -69,7 +69,7 @@ SESSION 3 — lineage — 2026-04-25 09:00
 
 ## What not to do
 
-- **Don't run `full` for a single-session task.** If you only need one brief drafted from material you already have, use `/art-brief` directly.
+- **Don't run `full` for a single-session task.** If you only need one brief drafted from material you already have, use `/art-project:brief` directly.
 - **Don't try to pipeline modes within a session.** The plugin enforces the one-mode-per-session rule.
 - **Don't expect the plugin to "manage" the project for you.** The project file is yours; the plugin appends to it but does not direct it.
 

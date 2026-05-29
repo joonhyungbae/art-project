@@ -1,6 +1,6 @@
 # Lineage mode
 
-> Slash command: `/art-lineage` — for when you have candidate precedents and want to extend them.
+> Slash command: `/art-project:lineage` — for when you have candidate precedents and want to extend them.
 
 ## What it does
 

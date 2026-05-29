@@ -12,7 +12,7 @@
 /plugin install art-project
 ```
 
-끝입니다. 다음 Claude Code 세션부터 6개 슬래시 명령(`/art-socratic`, `/art-provoke`, `/art-lineage`, `/art-brief`, `/art-rehearsal`, `/art-ideate`)이 활성화됩니다.
+끝입니다. 다음 Claude Code 세션부터 6개 슬래시 명령(`/art-project:socratic`, `/art-project:provoke`, `/art-project:lineage`, `/art-project:brief`, `/art-project:rehearsal`, `/art-project:ideate`)이 활성화됩니다.
 
 ## 대안: 소스에서 설치
 
@@ -29,7 +29,7 @@ git clone https://github.com/joonhyungbae/art-project ~/.claude/plugins/art-proj
 새 Claude Code 세션에서:
 
 ```text
-/art-socratic
+/art-project:socratic
 ```
 
 Socratic 모드 인트로가 나오면 설치 성공입니다. "command not found"가 나오면 Claude Code를 재시작하거나 플러그인이 설정에서 활성화되었는지 확인하세요.
@@ -56,4 +56,4 @@ Socratic 모드 인트로가 나오면 설치 성공입니다. "command not foun
 /plugin uninstall art-project
 ```
 
-플러그인은 제거되지만 `/art-ideate full` 모드로 만든 프로젝트 파일은 보존됩니다.
+플러그인은 제거되지만 `/art-project:ideate full` 모드로 만든 프로젝트 파일은 보존됩니다.

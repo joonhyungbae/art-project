@@ -31,12 +31,12 @@
 
 | 모드 | 슬래시 명령 | 사용 시점 |
 |---|---|---|
-| `socratic` | `/art-socratic` | 아직 컨셉이 없고 막연한 끌림만 있을 때 |
-| `provoke` | `/art-provoke` | 부분적 컨셉이 있지만 막혔을 때 |
-| `lineage` | `/art-lineage` | 후보 lineage가 있고 확장하고 싶을 때 |
-| `brief` | `/art-brief` | 충분한 재료가 모였고 명제 문서가 필요할 때 |
-| `rehearsal` | `/art-rehearsal` | 초안 brief가 있고 제출 전 부담 테스트가 필요할 때 |
-| `full` | `/art-ideate` | 주(週) 단위로 이어지는 장기 프로젝트 |
+| `socratic` | `/art-project:socratic` | 아직 컨셉이 없고 막연한 끌림만 있을 때 |
+| `provoke` | `/art-project:provoke` | 부분적 컨셉이 있지만 막혔을 때 |
+| `lineage` | `/art-project:lineage` | 후보 lineage가 있고 확장하고 싶을 때 |
+| `brief` | `/art-project:brief` | 충분한 재료가 모였고 명제 문서가 필요할 때 |
+| `rehearsal` | `/art-project:rehearsal` | 초안 brief가 있고 제출 전 부담 테스트가 필요할 때 |
+| `full` | `/art-project:ideate` | 주(週) 단위로 이어지는 장기 프로젝트 |
 
 자세한 내용은 [모드 개요](modes/overview.md)를 참고하세요.
 

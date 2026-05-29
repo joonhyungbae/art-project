@@ -83,7 +83,7 @@ Research [*into*](../philosophy/frayling-typology.md) / *through* / *for* art. �
 
 기본적으로 brief는 이전 모드에서 온 필드의 아티스트 목소리를 verbatim 보존합니다. 빈 필드는 `[gap, not in input]`으로 보고됩니다. 플러그인은 단편을 AI register로 *다듬지 않고*, 빈 필드용 content를 *fabricate하지 않습니다*.
 
-제출용 smoothing을 요청하려면 `/art-brief --polish`. 플래그는 opt-in만.
+제출용 smoothing을 요청하려면 `/art-project:brief --polish`. 플래그는 opt-in만.
 
 ## 참고
 

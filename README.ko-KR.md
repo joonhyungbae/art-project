@@ -4,6 +4,7 @@
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 > 영어판(권위 있는 정본): [README.md](README.md). 이 문서는 한국어 요약이며 세부 변경 이력은 영어판을 따릅니다.
+> 📖 위키: [한국어](https://joonhyungbae.github.io/art-project/ko/) / [English](https://joonhyungbae.github.io/art-project/)
 
 **실천 기반 예술 연구(practice-based artistic research)**를 위한 **스튜디오 진입 전 단계의 *언어화* 스캐폴드(pre-studio articulation scaffold)** Claude Code 플러그인입니다. **아이데이션 엔진이 아닙니다.** Penny / Ingold / Borgdorff의 비판 — 예술의 ideation은 비언어적이고 물질적이며 만듦과 분리되지 않는다 — 을 *받아들이고*, 플러그인의 범위를 ideation을 *둘러싼* 명제적 언어화 작업으로 한정했습니다. 실제 ideation은 작업실에서, 재료와 함께 일어납니다.
 
@@ -16,7 +17,7 @@
 /plugin install art-project
 ```
 
-설치 후 `/art-socratic`로 막연한 충동을 끌어내거나, `/art-provoke`로 갇힌 지점을 자극하거나, 자연어로 그냥 "새 프로젝트 같이 생각해줘"라고 시작하면 됩니다.
+설치 후 `/art-project:socratic`로 막연한 충동을 끌어내거나, `/art-project:provoke`로 갇힌 지점을 자극하거나, 자연어로 그냥 "새 프로젝트 같이 생각해줘"라고 시작하면 됩니다.
 
 ## 자기 위치 (Frayling 3층 하이브리드)
 
@@ -43,12 +44,12 @@ Clark & Chalmers (1998), Malafouris (2013), Penny (2017). 도구도 아니고 �
 
 | 슬래시 커맨드 | 모드 | 산출물 |
 |---|---|---|
-| `/art-socratic` | 소크라테스 대화 | Concept Pull Map (impulses / fragments / constraints / refusals / **residue**) |
-| `/art-provoke` | 도발 카드 | tradition-tagged 도발 8–20개, 자동 해석 금지(unhelpfulness 보존) |
-| `/art-lineage` | 계보 지도 | **작가가 후보를 먼저 제시**해야 활성화. 학습-데이터 편향 헤더 의무. 한국어 세션은 한국/동아시아 자료 우선 |
-| `/art-brief` | Concept Brief | proposition / **anti-proposition** / **disconfirmation 조건** / Frayling-type 선언 + stay-rough 기본값 |
-| `/art-rehearsal` | 자기비평 리허설 | 4 페르소나 (큐레이터·실기 동료·이론가·Devil's Advocate). *형성적, 결정적 아님.* 매번 의무 disclaimer + persona-collapse 감지 |
-| `/art-ideate` | 장기 프로젝트 파일 | 며칠/몇 주 간격 세션 across 누적 (Smith & Dean iterative cyclic web). 한 세션 = 한 모드 |
+| `/art-project:socratic` | 소크라테스 대화 | Concept Pull Map (impulses / fragments / constraints / refusals / **residue**) |
+| `/art-project:provoke` | 도발 카드 | tradition-tagged 도발 8–20개, 자동 해석 금지(unhelpfulness 보존) |
+| `/art-project:lineage` | 계보 지도 | **작가가 후보를 먼저 제시**해야 활성화. 학습-데이터 편향 헤더 의무. 한국어 세션은 한국/동아시아 자료 우선 |
+| `/art-project:brief` | Concept Brief | proposition / **anti-proposition** / **disconfirmation 조건** / Frayling-type 선언 + stay-rough 기본값 |
+| `/art-project:rehearsal` | 자기비평 리허설 | 4 페르소나 (큐레이터·실기 동료·이론가·Devil's Advocate). *형성적, 결정적 아님.* 매번 의무 disclaimer + persona-collapse 감지 |
+| `/art-project:ideate` | 장기 프로젝트 파일 | 며칠/몇 주 간격 세션 across 누적 (Smith & Dean iterative cyclic web). 한 세션 = 한 모드 |
 
 ## IRON RULES
 

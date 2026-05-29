@@ -6,12 +6,12 @@ The plugin exposes a single skill (`art-ideation`) with six modes. Each mode ope
 
 | Mode | Slash command | Output | Oversight tier |
 |---|---|---|---|
-| [Socratic](socratic.md) | `/art-socratic` | Dialogue + Concept Pull Map | Very High |
-| [Provoke](provoke.md) | `/art-provoke` | Tradition-tagged provocation set (8–20 cards) | High |
-| [Lineage](lineage.md) | `/art-lineage` | Lineage Map (5–15 precedents tagged kin / opposition / blind-spot) | Medium |
-| [Brief](brief.md) | `/art-brief` | 10-field Concept Brief | High |
-| [Rehearsal](rehearsal.md) | `/art-rehearsal` | Self-critique rehearsal transcript (4 personas) | High |
-| [Full](full.md) | `/art-ideate` | Long-running project file across sessions | Very High |
+| [Socratic](socratic.md) | `/art-project:socratic` | Dialogue + Concept Pull Map | Very High |
+| [Provoke](provoke.md) | `/art-project:provoke` | Tradition-tagged provocation set (8–20 cards) | High |
+| [Lineage](lineage.md) | `/art-project:lineage` | Lineage Map (5–15 precedents tagged kin / opposition / blind-spot) | Medium |
+| [Brief](brief.md) | `/art-project:brief` | 10-field Concept Brief | High |
+| [Rehearsal](rehearsal.md) | `/art-project:rehearsal` | Self-critique rehearsal transcript (4 personas) | High |
+| [Full](full.md) | `/art-project:ideate` | Long-running project file across sessions | Very High |
 
 ## Default routing rules
 
@@ -51,7 +51,7 @@ In v0.1 the rehearsal mode was called `panel`. The rename commits to the *method
 
 Mode transitions are explicit. When you switch from `socratic` to `provoke`, the plugin will announce the transition rather than silently changing behaviour. This is the **mode transition transparency** rule.
 
-If you start with `/art-ideate` (full project file), the file tracks which mode each session was in, so cross-session transitions are auditable.
+If you start with `/art-project:ideate` (full project file), the file tracks which mode each session was in, so cross-session transitions are auditable.
 
 ## See also
 

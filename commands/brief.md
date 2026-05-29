@@ -1,5 +1,4 @@
 ---
-name: art-brief
 description: "Concept Brief with epistemic fields (proposition / anti-proposition / disconfirmation condition / Frayling-type declaration). Stay-rough default — prose stays in the artist's voice. No auto-completion of gaps."
 model: sonnet
 ---

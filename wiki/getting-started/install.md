@@ -12,7 +12,7 @@
 /plugin install art-project
 ```
 
-That's it. The six slash commands (`/art-socratic`, `/art-provoke`, `/art-lineage`, `/art-brief`, `/art-rehearsal`, `/art-ideate`) become available in your next Claude Code session.
+That's it. The six slash commands (`/art-project:socratic`, `/art-project:provoke`, `/art-project:lineage`, `/art-project:brief`, `/art-project:rehearsal`, `/art-project:ideate`) become available in your next Claude Code session.
 
 ## Alternative: install from source
 
@@ -29,7 +29,7 @@ Then enable it in Claude Code settings or restart your session.
 In a new Claude Code session, type:
 
 ```text
-/art-socratic
+/art-project:socratic
 ```
 
 If you see the Socratic mode preamble, the install worked. If you see "command not found," restart Claude Code or check that the plugin is enabled in your settings.
@@ -56,4 +56,4 @@ See the [CHANGELOG](https://github.com/joonhyungbae/art-project/blob/main/CHANGE
 /plugin uninstall art-project
 ```
 
-This removes the plugin but preserves any project files you've created with `/art-ideate full` mode.
+This removes the plugin but preserves any project files you've created with `/art-project:ideate full` mode.

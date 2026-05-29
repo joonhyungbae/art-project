@@ -190,7 +190,7 @@ The Authentic Practice Boundary table is the operational form of Critique-3's st
 
 Per Practicing Artist Q2, the slash-command mode-selection burden is mostly removed. The user can:
 
-- invoke a specific mode via slash (`/art-socratic`, `/art-provoke`, etc.) when they know what they want, or
+- invoke a specific mode via slash (`/art-project:socratic`, `/art-project:provoke`, etc.) when they know what they want, or
 - start a natural-language session ("I want to think through a new project") and let the plugin auto-route via intent detection.
 
 When auto-routing, the plugin **announces the routing decision transparently**: *"Starting in socratic mode (exploratory intent detected). I'll suggest switching modes when the dialogue suggests it."* Mode transitions are similarly announced: *"Your impulse has stabilized; would you like to move to provoke or lineage, or continue exploring?"*

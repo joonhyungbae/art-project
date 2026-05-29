@@ -1,6 +1,6 @@
 # Provoke mode
 
-> Slash command: `/art-provoke` — for when you have a partial concept and feel stuck.
+> Slash command: `/art-project:provoke` — for when you have a partial concept and feel stuck.
 
 ## What it does
 

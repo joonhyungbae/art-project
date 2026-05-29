@@ -1,6 +1,6 @@
 # Rehearsal mode
 
-> Slash command: `/art-rehearsal` — for stress-testing a draft brief before submission.
+> Slash command: `/art-project:rehearsal` — for stress-testing a draft brief before submission.
 
 ## What it does
 

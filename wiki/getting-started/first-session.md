@@ -11,7 +11,7 @@ You have a vague pull toward something — an image, a question, a recent encoun
 In Claude Code:
 
 ```text
-/art-socratic
+/art-project:socratic
 ```
 
 The plugin will introduce itself briefly, then ask you the first Socratic question. Don't try to give a "correct" answer; the questions are designed to surface unfinished thought, not to extract finished thought.
@@ -36,7 +36,7 @@ The Concept Pull Map will usually suggest one of three next moves:
 - **Stuck on a specific question?** Switch to `provoke` for tradition-tagged provocations.
 - **Have candidate precedents in mind?** Switch to `lineage`.
 
-You don't have to decide immediately. You can close the session and come back to the Concept Pull Map later. If you started with `/art-ideate` (full project file mode), the map persists across sessions.
+You don't have to decide immediately. You can close the session and come back to the Concept Pull Map later. If you started with `/art-project:ideate` (full project file mode), the map persists across sessions.
 
 ## What not to do in the first session
 
@@ -52,4 +52,4 @@ For artists writing across languages — say, drafting English grant application
 
 ## After the first session
 
-Read [Modes overview](../modes/overview.md) to see how the six modes connect. Then either pick a specific mode you need next, or start a `/art-ideate` full project file that will track state across multiple sessions.
+Read [Modes overview](../modes/overview.md) to see how the six modes connect. Then either pick a specific mode you need next, or start a `/art-project:ideate` full project file that will track state across multiple sessions.
