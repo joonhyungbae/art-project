@@ -1,7 +1,9 @@
 # art-project for Claude Code (한국어)
 
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-D77757)](https://docs.claude.com/claude-code)
 [![Version](https://img.shields.io/badge/version-v0.1.0--ideation-blue)](https://github.com/joonhyungbae/art-project/releases)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![위키](https://img.shields.io/badge/wiki-KO%20%2F%20EN-blue)](https://joonhyungbae.github.io/art-project/ko/)
 
 > 영어판(권위 있는 정본): [README.md](README.md). 이 문서는 한국어 요약이며 세부 변경 이력은 영어판을 따릅니다.
 > 📖 위키: [한국어](https://joonhyungbae.github.io/art-project/ko/) / [English](https://joonhyungbae.github.io/art-project/)

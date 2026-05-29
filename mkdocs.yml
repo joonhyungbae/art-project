@@ -1,5 +1,5 @@
 site_name: art-project wiki
-site_description: A pre-studio articulation scaffold for practice-based artistic research — Claude Code plugin documentation.
+site_description: art-project is a Claude Code plugin that scaffolds the pre-studio articulation phase of practice-based artistic research (grant applications, doctoral expositions, residency proposals). Six modes — socratic, provoke, lineage, brief, rehearsal, full — with tradition-tag reference layer and authentic-practice boundaries. Not an ideation engine; the Penny / Ingold / Borgdorff critique that artistic ideation is non-linguistic and material is accepted.
 site_author: Joonhyung Bae
 site_url: https://joonhyungbae.github.io/art-project/
 repo_url: https://github.com/joonhyungbae/art-project
