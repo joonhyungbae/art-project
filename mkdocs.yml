@@ -75,6 +75,10 @@ plugins:
             Cognitive scaffold: Cognitive scaffold
             Frayling typology: Frayling typology
             Measured harms: Measured harms
+            Help: Help
+            FAQ: FAQ
+            Troubleshooting: Troubleshooting
+            Worked example: Worked example
             Contributing: Contributing
         - locale: ko
           name: 한국어
@@ -100,6 +104,10 @@ plugins:
             Cognitive scaffold: 인지적 스캐폴드
             Frayling typology: Frayling 분류
             Measured harms: 측정 가능한 위해
+            Help: 도움말
+            FAQ: 자주 묻는 질문
+            Troubleshooting: 트러블슈팅
+            Worked example: 워크드 예시
             Contributing: 기여
 
 markdown_extensions:
@@ -145,6 +153,10 @@ nav:
       - Cognitive scaffold: philosophy/cognitive-scaffold.md
       - Frayling typology: philosophy/frayling-typology.md
       - Measured harms: philosophy/measured-harms.md
+  - Help:
+      - FAQ: help/faq.md
+      - Troubleshooting: help/troubleshooting.md
+      - Worked example: help/worked-example.md
   - Contributing: contributing.md
 
 extra:
