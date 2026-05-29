@@ -177,37 +177,40 @@ I have a concept about inscriptions that disclaim their own authorship. I have s
 Here is my Concept Brief draft. [paste brief]
 ```
 
-**Spec-promised behaviour:**
+**Spec-promised behaviour** (v0.2):
 - Mandatory disclaimer header reproduced verbatim at the top.
-- Before generating the rehearsal, **asks the artist**: *"Has this concept been rehearsed in the last 14 days? If so, how many times?"* (honour-system at v0.1; user-prompted, not auto-detected).
-- If self-report ≥ 2, fires the friction warning verbatim and asks *"Proceed anyway?"*.
+- Before generating the rehearsal, the plugin **reads `~/.art-project/rehearsal-log.jsonl`** (creating the file if absent), asks the artist for a concept-slug, filters log records for that slug in the last 14 days, and counts them.
+- If the count is ≥ 2, fires the friction warning verbatim and asks *"Proceed anyway?"*.
+- After the artist confirms proceed, **appends a new record** to the log: `{timestamp, concept_slug, session_id}`.
+- If the log file is unreadable / unwritable, the plugin falls back to one-shot self-report and announces the fallback explicitly in the warning ("log unavailable; relying on your self-report").
 - Four personas (Curator → Practitioner-peer → Theorist → Devil's Advocate) speak in order.
 - Each persona produces 2-4 questions; the Devil's Advocate is governed by the Concession Threshold Protocol (no concession until rebuttal score ≥4).
 - Concludes with re-entry markers: *"Re-enter Brief field X with this concern."*
-- Persona-collapse detector flag fires if all four converge on a single concern (heuristic at v0.1).
+- Persona-collapse detector flag fires if all four converge on a single concern (heuristic at v0.2).
 
 **PASS signals:**
 - ✓ Disclaimer header appears, verbatim or near-verbatim.
-- ✓ Plugin asks the rehearsal-history question before producing the rehearsal.
+- ✓ Plugin **reads `~/.art-project/rehearsal-log.jsonl`** (or creates it) and asks for the concept-slug before producing the rehearsal. Tester can verify by inspecting the file after the session — it should contain a new JSON record.
 - ✓ Four distinct persona voices, in order, each with 2-4 questions.
 - ✓ Devil's Advocate questions are clearly more aggressive than the other three personas (preserved attack stance).
 - ✓ Output ends with explicit Brief-field re-entry markers.
-- ✓ If you self-report "rehearsed twice already in the last week", the friction warning appears verbatim.
+- ✓ On the second rehearsal of the same concept within 14 days, the friction warning fires automatically *because the log records two matching entries* — not because the artist self-reported.
 
 **FAIL signals:**
 - ✗ Disclaimer header missing.
-- ✗ Plugin skips the rehearsal-history self-report question and generates the rehearsal directly.
+- ✗ Plugin does NOT read or write `~/.art-project/rehearsal-log.jsonl` (verifiable by inspecting the file before and after — file unchanged means the v0.2 binding did not fire).
+- ✗ Plugin only asks the artist verbally without consulting the log (this is the v0.1 honour-system regression).
 - ✗ Personas blur into one voice early (the persona-collapse detector should fire and it doesn't).
 - ✗ Devil's Advocate concedes to your pushback immediately without rebuttal-score discipline.
 - ✗ Output ends with a verdict ("your brief is ready for submission") — direct violation of formative-not-decisional.
 - ✗ Re-entry markers absent.
 
-**Tester action:** answer the rehearsal-history question with "two times in the past week" the second time you run rehearsal on the same brief. Verify friction warning fires.
+**Tester action:** before running the test, `rm -f ~/.art-project/rehearsal-log.jsonl` (or back it up). Run the rehearsal once with a concept-slug like `whispers-stranger-voices`; verify the file now contains one JSON record. Run the rehearsal a second time with the same slug within minutes; verify the friction warning fires automatically and a second record is appended only after confirm.
 
-**Spec strength:** Mixed.
+**Spec strength** (v0.2):
 - Disclaimer header: HARD-enforced.
-- Friction warning: HARD-enforced as honour-system; the plugin will ask, but the limitation is *if you forget or under-report, the warning doesn't fire*. This is the v0.1 boundary the docs now name honestly.
-- Persona-collapse detector: SOFT (heuristic only).
+- Friction warning: **HARD-enforced via runtime state** (the consultative log). The warning fires from a log read, not from artist memory. Graceful fallback to one-shot self-report only if the filesystem is unwritable.
+- Persona-collapse detector: SOFT (heuristic only; v0.3 work).
 - Concession Threshold: HARD via inheritance from the agent file `art-ideation/agents/devils_advocate_agent.md`; not explicitly re-asserted in the command, so relies on Claude's file-import reflexes.
 
 ---
@@ -225,23 +228,43 @@ This is the meta-mode. Two sub-tests.
 I want to start a new project about found photographs.
 ```
 
-**Spec-promised behaviour:**
-- Tells the artist that persistence is artist-managed (v0.1 honesty note).
+**Spec-promised behaviour** (v0.2):
 - Asks for a project codename.
-- Tells the artist the suggested filename (`art-project-{slug}.md`) and that the artist owns the file.
-- Emits a project-file header block and a session 1 block as text the artist should save.
+- **Creates `~/.art-project/projects/<codename>/project.md`** with `mkdir -p` on the parent directory, then writes the header block (codename, created date, sessions counter set to 0, brief description prompt).
+- Surfaces the file path and the written content to the artist before continuing.
 - Asks where to begin (socratic / provoke / lineage / brief).
+- At end of session: appends a verbatim Session block to `project.md` and increments the sessions counter.
+- If `~` is unwritable, falls back to v0.1 artist-managed mode and announces the fallback explicitly.
 
 **PASS signals:**
-- ✓ Plugin mentions the v0.1 limitation (persistence is artist-managed).
-- ✓ Asks for a codename.
-- ✓ Produces a saveable header block, not just narration about one.
+- ✓ Plugin **actually creates** `~/.art-project/projects/<codename>/project.md` (verifiable: `ls ~/.art-project/projects/` shows the directory; `cat` of the file shows the header).
+- ✓ Plugin asks for a codename before creating the file.
+- ✓ Plugin surfaces the file path and the diff before writing.
 - ✓ Asks which sub-mode to start.
 
 **FAIL signals:**
-- ✗ Plugin claims to auto-create a file in `~/.art-project/projects/[codename]/`.
-- ✗ Plugin produces no saveable artefact (just talks about the project).
+- ✗ Plugin **does not create** the file (verifiable: the directory does not exist after the session).
+- ✗ Plugin only emits a "saveable header block" as text in the chat and tells the artist to save it (this is the v0.1 honour-system regression).
+- ✗ Plugin produces no artefact at all (just talks about the project).
 - ✗ Plugin auto-launches a sub-mode without asking.
+
+### Sub-test 6a-followup — return after a day
+
+**Test prompt** (next session):
+
+```
+/art-project:ideate
+continuing the found-photographs project
+```
+
+**PASS signals:**
+- ✓ Plugin scans `~/.art-project/projects/` for the matching codename and **reads** `project.md` directly.
+- ✓ Summarises the last 1–2 session blocks from the file content.
+- ✓ Asks where to continue.
+
+**FAIL signals:**
+- ✗ Plugin asks the artist to paste the project file (v0.1 regression).
+- ✗ Plugin fabricates a recall of last session without reading the file.
 
 ### Sub-test 6b — single-session compression refusal
 
@@ -271,24 +294,24 @@ I want to start a new project about found photographs.
 
 | Mode | HARD-enforced IRON rules | SOFT / honour-system | Empirical evidence | Smoke-test confidence |
 |---|---|---|---|---|
-| socratic | no auto-convergence | intent detection cadence (every 3 turns is unbound) | none | HIGH — spec is concretely binding |
-| provoke | preserved unhelpfulness; no ranking; tradition-tag + APB; counter-formulation | DHI cadence (every 5 turns is unbound) | none | HIGH |
+| socratic | no auto-convergence; per-turn intent classification (v0.2 phase (c)) | output-language match | none | HIGH — spec is concretely binding; intent detection now HARD |
+| provoke | preserved unhelpfulness; no ranking; tradition-tag + APB; counter-formulation | DHI demoted out of IRON registry at v0.2 phase (c) | none | HIGH |
 | lineage | candidate requirement; bias header verbatim; Korean routing; L3 verify-mark | none significant | none | HIGH |
 | brief | stay-rough default; no auto-completion; gap format verbatim | --polish discipline depends on user | YES — paper's audit | HIGHEST (this is the empirically validated mode) |
-| rehearsal | disclaimer header verbatim; refusal-to-rank inherited | friction warning is honour-system (now named); persona-collapse is heuristic; Concession Threshold via inheritance | none | MEDIUM — disclaimer is binding; friction depends on user honesty |
-| full | one-mode-per-session refusal; the multi-week-iteration narrative | persistence is artist-managed (now named) | none | MEDIUM — the refusal is binding; persistence quality depends on user |
+| rehearsal | disclaimer header verbatim; refusal-to-rank inherited; **friction warning via `~/.art-project/rehearsal-log.jsonl` (v0.2 phase (a))** | persona-collapse is heuristic (v0.3); Concession Threshold via inheritance; graceful fallback to self-report if log unwritable | none | HIGH — disclaimer binding; friction now fires from log read, not memory |
+| full | one-mode-per-session refusal; the multi-week-iteration narrative; **project-file at `~/.art-project/projects/<codename>/project.md` (v0.2 phase (b))** | graceful fallback to artist-managed if `~` unwritable | none | HIGH — refusal binding; persistence now backed by real filesystem mechanism |
 
-**Net.** The four modes the audit identified as HARD-enforced (socratic, provoke, lineage, brief) should produce reliably correct behaviour from a serious Claude session. Brief is empirically validated for the one property the paper audited; the other three are spec-strong but un-tested. Rehearsal and full carry honour-system substitutes that work as long as the user is honest with themselves about what they're getting. None of the six modes contains hidden landmines that would cause silent corruption of artist material; the worst case is mode-output quality degradation (over-conservatism, as the paper reports), not data loss or fabricated lineage at scale.
+**Net (post-v0.2).** All six modes are now HARD-enforced at the runtime level for their load-bearing IRON rules. Brief is empirically validated for the one property the paper audited; the other five are spec-strong but un-tested at scale. Rehearsal and full no longer rely on honour-system substitutes — the rehearsal-log and project-file mechanisms provide real runtime state, with graceful fallback only when the filesystem is unwritable. None of the six modes contains hidden landmines that would cause silent corruption of artist material; the worst case is mode-output quality degradation (over-conservatism, as the paper reports), not data loss or fabricated lineage at scale.
 
 ## After the smoke test
 
 Where you find FAIL signals, file them in the project as issues so the v0.2 work has concrete material to address. Where you find PASS signals, the spec is honoured at the level it claims.
 
-The honest answer to "does this plugin actually work" after a smoke test pass:
+The honest answer to "does this plugin actually work" after a smoke test pass (post-v0.2):
 
 - **Brief mode**: YES, with empirical evidence.
 - **Socratic / Provoke / Lineage**: YES per spec, no empirical evidence yet.
-- **Rehearsal**: YES per spec if the user self-reports rehearsal history honestly; otherwise YES per spec but the friction discipline degrades to user discipline.
-- **Full**: YES per spec if the user keeps the project file under their own version control; otherwise YES per spec but the cross-session-continuity claim is artist-load, not plugin-load.
+- **Rehearsal**: YES per spec — friction warning now fires from `~/.art-project/rehearsal-log.jsonl` read, not from artist self-report; the discipline survives forgetfulness. Graceful fallback to self-report only if the log is unwritable.
+- **Full**: YES per spec — cross-session continuity now backed by `~/.art-project/projects/<codename>/project.md` which the plugin reads and appends to. The file is plain markdown the artist can still git-track. Graceful fallback to artist-managed only if `~` is unwritable.
 
-The plugin is honest about all of these as of `commit 535892d`.
+The plugin is honest about all of these as of the v0.2 docs-sync commit (see `docs/V0.2-DESIGN-DECISIONS.md` for the four-phase commit chain).

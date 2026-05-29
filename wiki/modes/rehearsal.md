@@ -37,9 +37,9 @@ requires real interlocutors.
 
 The disclaimer is not optional.
 
-## Architectural friction (v0.1: honour-system)
+## Architectural friction (v0.2: consultative log)
 
-The plugin has no session-history mechanism in v0.1, so the friction works as a *prompted self-report*. Before generating the rehearsal output, the plugin asks the artist: *"Has this concept been rehearsed in the last 14 days? If so, how many times?"* If the answer is **two or more**, the plugin issues this warning:
+The plugin reads and appends to an append-only log at `~/.art-project/rehearsal-log.jsonl`. On rehearsal entry the plugin asks for a **concept-slug** (e.g. `whispers-stranger-voices`), filters the log for records matching that slug within the last 14 days, and counts them. If the count is **two or more**, the plugin issues this warning:
 
 ```text
 FRICTION WARNING
@@ -60,7 +60,9 @@ Proceed anyway? [y/N]
 ─────────────────────────────────────────────────────
 ```
 
-**v0.1 honest limitation.** This warning fires only when the artist self-reports rehearsal history accurately. The plugin cannot detect rehearsal frequency on its own; that mechanism is v0.2 work. If the artist forgets or under-reports, the warning does not fire. The friction is therefore a *normative discipline* the user opts into, not a hard architectural gate.
+After the artist confirms proceed, the plugin appends a new record to the log: `{timestamp, concept_slug, session_id}`.
+
+**v0.2 consultative — warning, not block.** The warning fires automatically from a real log read, not from artist memory. The artist still owns the proceed/abort decision; the plugin does not block, it consults. If the log file is unreadable or `~` is unwritable, the plugin falls back to a one-shot self-report ("log unavailable; relying on your self-report") and says so explicitly. The friction is architectural where the filesystem allows it, normative where it doesn't.
 
 ## Persona-collapse detector
 
@@ -76,7 +78,7 @@ If during the rehearsal, two or more personas converge to the same line of quest
 ## IRON rules
 
 - **Formative-not-decisional** — the disclaimer header is mandatory; the rehearsal output is never framed as evaluation.
-- **Architectural friction** — the 2/14 friction warning fires automatically.
+- **Architectural friction** — the 2/14 friction warning fires automatically from a read of `~/.art-project/rehearsal-log.jsonl`; consultative, not blocking.
 - **Persona-collapse detector** — the plugin self-monitors for persona convergence and flags it.
 
 ## What not to do

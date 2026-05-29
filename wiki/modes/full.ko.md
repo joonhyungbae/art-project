@@ -15,11 +15,19 @@
 - 다주 그랜트·레지던시 타임라인 아래에서 작업할 때.
 - 트리거 표현: "start a new project", "open my project file", "continue where I left off".
 
-## 프로젝트 파일은 어떻게 작동하는가 (v0.1: 아티스트 관리)
+## 프로젝트 파일은 어떻게 작동하는가 (v0.2: 플러그인 관리, `~/.art-project/projects/`)
 
-**v0.1 정직 노트.** 플러그인은 당신 파일시스템에 프로젝트 파일 디렉터리를 *자동 생성·읽기 하지 않습니다*. 지속성은 **아티스트가 관리**합니다: 파일명을 선택하고(권장 기본: 현재 Claude Code 작업 디렉터리의 `art-project-{slug}.md`), 그 파일을 버전 관리·백업하는 책임도 당신에게 있습니다. 플러그인은 세션 로그를 당신이 append할 텍스트로 emit하고; 나중 세션에서 파일을 paste/upload하면 플러그인이 이전 상태를 읽습니다. 실제 cross-session 파일시스템 지속성은 v0.2 작업입니다.
+플러그인은 프로젝트당 1개 markdown 파일을 `~/.art-project/projects/<codename>/project.md`에 유지합니다.
 
-매 세션, 어느 모드를 실행할지 선택합니다. 프로젝트 파일을 context로 paste/참조하면; 플러그인이 읽고 모드를 실행하고 세션 출력을 당신이 append할 형태로 emit합니다. 다음 세션에서는 이전 세션을 이름으로 참조할 수 있습니다 (예: "session 4 socratic에서 X라고 했는데, 여전히 holds하는가?").
+**새 프로젝트**: codename을 제공하면 플러그인이 디렉터리를 `mkdir -p`하고, 프로젝트 헤더(codename, 생성 날짜, 세션 카운터, 짧은 설명)를 작성하고, 파일 경로와 작성된 내용을 확인용으로 surface하고, 어느 sub-mode부터 시작할지 묻습니다.
+
+**돌아오는 세션**: 플러그인이 `~/.art-project/projects/`에서 codename 일치를 스캔하고, `project.md`를 직접 읽고, 마지막 1–2 세션 블록을 요약하고, 어디서부터 이어갈지 묻습니다.
+
+**각 세션 끝**: 플러그인이 verbatim Session 블록(mode, 날짜, 출력, 아티스트-노트 placeholder)을 `project.md`에 append하고 세션 카운터를 증가시킵니다. diff는 쓰기 전 surface됩니다.
+
+**파일은 여전히 당신의 것**입니다. 알려진 예측 가능한 위치의 plain markdown — `~/.art-project/projects/<codename>/` 디렉터리를 `git init`하거나, Dropbox/rsync로 동기화하거나, 손으로 편집하거나, 협업자에게 복사할 수 있습니다. 플러그인은 read/append 사이클을 관리하고; 나머지는 당신의 파일시스템입니다.
+
+**Graceful fallback.** `~`에 어떤 이유로든 쓸 수 없는 경우(샌드박스 환경, 권한 오류), 플러그인은 v0.1 아티스트-관리 모델로 fallback합니다 — 세션 로그를 당신이 paste-back할 텍스트로 emit하고 — fallback을 명시적으로 알립니다. 그러면 cross-session-continuity 주장은 플러그인-부하가 아닌 아티스트-부하가 되며, 플러그인이 그렇게 명시합니다.
 
 ## 세션당 1개 모드 규칙
 
@@ -31,7 +39,7 @@ full 프로젝트 파일의 각 세션은 **최대 1개 모드**를 실행합니
 
 - **세션당 1개 모드** — 아키텍처적으로 강제됨; 세션 내 모드 전환을 시도하면 플러그인이 경고하고 명시적 override를 요구함.
 - **단일-세션 pipelining 금지** — 한 자리에서 `socratic → brief`는 cyclic web에 구조적으로 적대적; 플러그인이 pipeline을 거부함.
-- **프로젝트 파일 지속** — 모든 세션 출력이 append됨; 어떤 것도 overwrite되지 않음. 파일은 플러그인이 아닌 아티스트의 것임.
+- **프로젝트 파일 지속 — `~/.art-project/projects/<codename>/project.md`** — 모든 세션 출력이 append됨; 어떤 것도 overwrite되지 않음. 플러그인이 read/append 사이클을 관리하지만, 파일은 아티스트가 git-track·동기화·손편집할 수 있는 plain markdown으로 남음.
 
 ## 프로젝트 파일 모습
 

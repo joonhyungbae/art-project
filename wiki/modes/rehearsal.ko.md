@@ -37,9 +37,9 @@ interlocutor를 요구합니다.
 
 disclaimer는 선택사항이 아닙니다.
 
-## 아키텍처 마찰 (v0.1: 명예 시스템)
+## 아키텍처 마찰 (v0.2: 상담형 로그)
 
-v0.1에는 플러그인 측 세션-히스토리 메커니즘이 없습니다. 마찰은 *prompted self-report*로 작동: rehearsal 출력 생성 전 플러그인이 묻습니다 — *"이 컨셉을 지난 14일 내 rehearse한 적이 있나요? 있다면 몇 번?"*. 답이 **2회 이상**이면 플러그인이 다음 경고 발행:
+플러그인은 `~/.art-project/rehearsal-log.jsonl`의 append-only 로그를 읽고 씁니다. rehearsal 진입 시 플러그인은 **concept-slug**(예: `whispers-stranger-voices`)를 요청하고, 로그에서 해당 slug와 일치하는 지난 14일 내 레코드를 필터링해 카운트합니다. 카운트가 **2회 이상**이면 플러그인이 다음 경고를 발행합니다:
 
 ```text
 FRICTION WARNING
@@ -59,7 +59,9 @@ provoke로 돌아가기; (c) 추가 rehearsal 없이 brief와
 ─────────────────────────────────────────────────────
 ```
 
-**v0.1 정직한 한계.** 이 경고는 아티스트가 rehearsal 히스토리를 정확히 self-report할 때만 발사됩니다. 플러그인은 rehearsal 빈도를 스스로 감지할 수 없고; 그 메커니즘은 v0.2 작업입니다. 아티스트가 잊거나 under-report하면 경고는 발사되지 않습니다. 따라서 마찰은 *사용자가 opt-in하는 규범적 규율*이지 hard architectural gate가 아닙니다.
+아티스트가 진행을 확인하면 플러그인은 로그에 새 레코드를 append합니다: `{timestamp, concept_slug, session_id}`.
+
+**v0.2 상담형 — 경고이지 차단이 아님.** 경고는 아티스트의 기억이 아닌 실제 로그 읽기로부터 자동 발사됩니다. 아티스트는 여전히 진행/중단 결정을 소유하며; 플러그인은 차단하지 않고 상담합니다. 로그 파일이 읽을 수 없거나 `~`에 쓸 수 없는 경우, 플러그인은 1회성 self-report로 graceful fallback하고("로그 사용 불가; self-report에 의존") 그 사실을 명시적으로 알립니다. 파일시스템이 허용하는 곳에서는 마찰이 아키텍처적이고, 그렇지 않은 곳에서는 규범적입니다.
 
 ## Persona-collapse 디텍터
 
@@ -75,7 +77,7 @@ rehearsal 중 둘 이상의 페르소나가 같은 질문 라인으로 수렴하
 ## IRON rules
 
 - **decisional이 아닌 formative** — disclaimer header가 필수; rehearsal 출력은 결코 평가로 framing되지 않음.
-- **아키텍처 마찰** — 2/14 friction 경고가 자동 발사됨.
+- **아키텍처 마찰** — `~/.art-project/rehearsal-log.jsonl` 읽기로부터 2/14 friction 경고가 자동 발사됨; 차단이 아닌 상담형.
 - **Persona-collapse 디텍터** — 플러그인이 페르소나 수렴을 self-monitor하고 flag함.
 
 ## 하지 말 것

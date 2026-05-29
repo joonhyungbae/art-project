@@ -15,11 +15,19 @@ The mode is the operational response to Smith & Dean's iterative cyclic web fram
 - You're working under a multi-week grant or residency timeline.
 - Trigger phrases: "start a new project", "open my project file", "continue where I left off".
 
-## How project files work (v0.1: artist-managed)
+## How project files work (v0.2: plugin-managed at `~/.art-project/projects/`)
 
-**v0.1 honesty note.** The plugin does *not* auto-create or auto-read a project-file directory on your filesystem. Persistence is **artist-managed**: you choose a filename (suggested default: `art-project-{slug}.md` in your current Claude Code working directory), and you are responsible for keeping that file under version control or backup. The plugin emits the session log as text you append; on a later session, you paste or upload the file so the plugin can read prior state. Real cross-session filesystem persistence is v0.2 work.
+The plugin maintains a single markdown file per project at `~/.art-project/projects/<codename>/project.md`.
 
-Each session, you choose which mode to run. You paste or reference the project file as context; the plugin reads it, runs the mode, and emits the session output for you to append. The next session, you can reference earlier sessions by name (e.g. "in the session 4 socratic, I said X — does that still hold?").
+**On a new project**, you supply a codename; the plugin `mkdir -p`'s the directory, writes the project header (codename, created date, sessions counter, brief description), surfaces the file path and the written content to you for confirmation, and asks which sub-mode to start.
+
+**On a returning session**, the plugin scans `~/.art-project/projects/` for codename matches, reads `project.md` directly, summarises the last 1–2 session blocks, and asks where you want to continue.
+
+**At end of each session**, the plugin appends a verbatim Session block to `project.md` (mode, date, output, artist-notes placeholder) and increments the sessions counter. The diff is surfaced before writing.
+
+**The file stays yours.** It is plain markdown in a known, predictable location — you can `git init` the `~/.art-project/projects/<codename>/` directory, sync it via Dropbox or rsync, edit by hand, copy to a collaborator. The plugin manages the read/append cycle; everything else is your filesystem.
+
+**Graceful fallback.** If `~` is unwritable for any reason (sandboxed environment, permission error), the plugin falls back to the v0.1 artist-managed model — emits the session log as text you paste-back — and announces the fallback explicitly. The cross-session-continuity claim is then artist-load, not plugin-load, and the plugin says so.
 
 ## One mode per session rule
 
@@ -31,7 +39,7 @@ If you find yourself wanting to switch modes mid-session, close the session and 
 
 - **One mode per session** — enforced architecturally; if you try to switch modes within a session, the plugin will warn and require explicit override.
 - **No single-session pipelining** — `socratic → brief` in one sitting is structurally hostile to the cyclic web; the plugin refuses to pipeline.
-- **Project file persists** — all session outputs are appended; nothing is overwritten. The file is the artist's, not the plugin's.
+- **Project file persists at `~/.art-project/projects/<codename>/project.md`** — all session outputs are appended; nothing is overwritten. The plugin manages the read/append cycle, but the file remains plain markdown the artist can git-track, sync, or edit by hand.
 
 ## What the project file looks like
 
