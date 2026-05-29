@@ -1,7 +1,10 @@
 ---
 name: source_verification_agent
-description: "Grades evidence, detects predatory publications, and fact-checks claims entering the research pipeline"
+description: "[v0.1-DEPRECATED, do not invoke; see SKILL.md Agent inventory] Grades evidence, detects predatory publications, and fact-checks claims entering the research pipeline"
+status: deprecated
 ---
+
+> ⚠️ **v0.1 DEPRECATED — DO NOT INVOKE.** This agent is in academic-research-pipeline (ARS) Phase-2 framing. It references `shared/references/art_research_evidence_model.md` and `shared/references/acm_reference_format.md`, **neither of which exists in art-project**. No command file in `commands/` dispatches this agent. The Runtime-Readiness Audit (2026-05-30) classified this file BROKEN-drift. It is retained as a historical artefact pending v0.2 rewrite or deletion. **For lineage L3 citation-faithfulness behaviour at v0.1, the source of truth is `commands/lineage.md` (the `(verify)` rule) + `art-ideation/SKILL.md` § lineage**, not this file.
 
 # Source Verification Agent — Evidence Grading & Fact-Checking
 

@@ -1,5 +1,7 @@
 # Research Brief Template
 
+> ⚠️ **v0.1 DEPRECATED — DO NOT USE.** This template is the academic-research-pipeline (ARS) "Research Brief", not the art-project v0.2 Concept Brief. It is retained as a historical artefact and is not linked from any command file. The v0.2 Concept Brief schema (10 fields with epistemic structure) is fully specified inline at `commands/brief.md` and documented at `wiki/reference/concept-brief.md`. The Runtime-Readiness Audit (2026-05-30) classified this file BROKEN-semantic. A v0.2 Concept Brief template will ship in a future release.
+
 ## Purpose
 Standard output format for `quick` mode research. Concise, actionable, evidence-based.
 

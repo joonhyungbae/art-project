@@ -37,9 +37,9 @@ requires real interlocutors.
 
 The disclaimer is not optional.
 
-## Architectural friction
+## Architectural friction (v0.1: honour-system)
 
-After **2 invocations** of `rehearsal` on the same concept within **14 days**, the plugin issues a friction warning:
+The plugin has no session-history mechanism in v0.1, so the friction works as a *prompted self-report*. Before generating the rehearsal output, the plugin asks the artist: *"Has this concept been rehearsed in the last 14 days? If so, how many times?"* If the answer is **two or more**, the plugin issues this warning:
 
 ```text
 FRICTION WARNING
@@ -60,7 +60,7 @@ Proceed anyway? [y/N]
 ─────────────────────────────────────────────────────
 ```
 
-This friction is architectural, not advisory; the warning fires every time after the threshold.
+**v0.1 honest limitation.** This warning fires only when the artist self-reports rehearsal history accurately. The plugin cannot detect rehearsal frequency on its own; that mechanism is v0.2 work. If the artist forgets or under-reports, the warning does not fire. The friction is therefore a *normative discipline* the user opts into, not a hard architectural gate.
 
 ## Persona-collapse detector
 

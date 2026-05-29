@@ -37,9 +37,9 @@ interlocutor를 요구합니다.
 
 disclaimer는 선택사항이 아닙니다.
 
-## 아키텍처 마찰
+## 아키텍처 마찰 (v0.1: 명예 시스템)
 
-같은 컨셉에 대해 **14일 내 2회** `rehearsal` 호출 후, 플러그인은 friction 경고를 발행합니다:
+v0.1에는 플러그인 측 세션-히스토리 메커니즘이 없습니다. 마찰은 *prompted self-report*로 작동: rehearsal 출력 생성 전 플러그인이 묻습니다 — *"이 컨셉을 지난 14일 내 rehearse한 적이 있나요? 있다면 몇 번?"*. 답이 **2회 이상**이면 플러그인이 다음 경고 발행:
 
 ```text
 FRICTION WARNING
@@ -59,7 +59,7 @@ provoke로 돌아가기; (c) 추가 rehearsal 없이 brief와
 ─────────────────────────────────────────────────────
 ```
 
-이 마찰은 아키텍처적이지 advisory가 아닙니다; 임계값 이후 매번 경고가 발생합니다.
+**v0.1 정직한 한계.** 이 경고는 아티스트가 rehearsal 히스토리를 정확히 self-report할 때만 발사됩니다. 플러그인은 rehearsal 빈도를 스스로 감지할 수 없고; 그 메커니즘은 v0.2 작업입니다. 아티스트가 잊거나 under-report하면 경고는 발사되지 않습니다. 따라서 마찰은 *사용자가 opt-in하는 규범적 규율*이지 hard architectural gate가 아닙니다.
 
 ## Persona-collapse 디텍터
 

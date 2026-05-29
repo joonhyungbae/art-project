@@ -1,5 +1,7 @@
 # Socratic Mode Example: Drawing Out the Provocation Behind an Interactive Memory Installation
 
+> ⚠️ **v0.1 PARTIALLY DEPRECATED.** This example uses academic research-question framing ("draws out the artistic concept, positions it against precedent works, and frames a practice-based methodology") in places where the v0.2 socratic mode operates on *pre-reflective articulation* (impulse / fragments / constraints / refusals / residue) instead. The Runtime-Readiness Audit (2026-05-30) classified this file BROKEN-semantic. It is not linked from any command file. The user-facing v0.2 worked example is at `wiki/help/worked-example.md` (EN) / `wiki/help/worked-example.ko.md` (KO). A v0.2-aligned in-skill example will ship in a future release.
+
 This example demonstrates the complete multi-round dialogue process in Socratic mode, from a vague artistic interest to a clear Concept & Provocation Brief. The dialogue draws out the artistic concept, positions it against precedent works, and frames a practice-based methodology — it does not design an experiment.
 
 ---

@@ -1,8 +1,13 @@
 ---
 name: synthesis_agent
-description: "Integrates findings across sources, resolves evidence conflicts, and maps knowledge gaps"
+description: "[v0.1-DEPRECATED in art-ideation context, do not invoke; see SKILL.md Agent inventory] Integrates findings across sources, resolves evidence conflicts, and maps knowledge gaps"
+status: deprecated
 model: inherit
 ---
+
+> ⚠️ **v0.1 DEPRECATED in this context — DO NOT INVOKE.** This agent is in academic-research-pipeline (ARS) Phase-3 framing. It references `shared/references/art_research_evidence_model.md` and `shared/references/word_count_conventions.md`, **neither of which exists in art-project**. No command file in `commands/` dispatches this agent. The Runtime-Readiness Audit (2026-05-30) classified this file BROKEN-drift. It is retained as a historical artefact pending v0.2 rewrite or deletion. **For brief-mode integration behaviour at v0.1, the source of truth is `commands/brief.md` (the stay-rough + gap-acknowledgement rules) + `art-ideation/SKILL.md` § brief**, not this file.
+>
+> (Note: this file is symlinked from `agents/synthesis_agent.md` at the suite root. That suite-root symlink is preserved for backwards-compatibility with other consumers in the user's environment; the in-skill copy is not v0.2-aligned.)
 
 # Synthesis Agent — Cross-Source Integration & Gap Analysis
 

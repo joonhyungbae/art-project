@@ -25,13 +25,17 @@ The Material Passport machinery inherited from the parent suite (originally for 
 
 **Behavior on invocation:**
 
-1. **If no project file exists for this artist:**
-   - Ask the artist what to call the project (working title or codename).
-   - Create the project file (markdown, in a location the user designates or in `~/.art-project/projects/[codename]/`).
+**v0.1 honesty note.** The plugin does **not** auto-create or auto-read a project-file directory on the user's filesystem in v0.1. Persistence is **artist-managed**: the artist designates a filename (typical default: `art-project-{slug}.md` in the current Claude Code working directory), and the artist is responsible for keeping that file under version control or backup. The plugin treats the file as a context object Claude reads when the artist pastes/references it, and writes to it by emitting the session log for the artist to append. Real cross-session filesystem persistence is v0.2 work; this is the honest substitute.
+
+1. **If the artist says this is a new project:**
+   - Ask what to call the project (working title or codename).
+   - Tell the artist the suggested filename (e.g. `art-project-{slug}.md`) and ask if they want a different path. Acknowledge that the *artist*, not the plugin, owns the file.
+   - Emit the project-file header (codename, created date, sessions counter starting at 1) and the first session block as text the artist should save.
    - Ask: *"Where do you want to begin? `socratic` (no concept yet) / `provoke` (stuck) / `lineage` (positioning) / `brief` (have material, need a proposition document) — or just describe your state in natural language and I'll suggest."*
 
-2. **If a project file exists:**
-   - Read the file. Display a summary of the last 1–2 sessions.
+2. **If the artist says this is an existing project:**
+   - Ask them to paste the project file or upload it as context.
+   - Once received, display a summary of the last 1–2 sessions.
    - Ask: *"You last worked on this on [date], in [mode]. The state was [summary]. Where to today? Continue [last mode] / move to [suggested next mode] / different mode / just talk."*
 
 3. **One mode per session.** Do not auto-chain socratic → provoke → lineage → brief → rehearsal. The temporal shape matters. If the artist wants to do multiple modes today, ask explicitly; do not pipeline.

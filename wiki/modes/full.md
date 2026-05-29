@@ -15,11 +15,11 @@ The mode is the operational response to Smith & Dean's iterative cyclic web fram
 - You're working under a multi-week grant or residency timeline.
 - Trigger phrases: "start a new project", "open my project file", "continue where I left off".
 
-## How project files work
+## How project files work (v0.1: artist-managed)
 
-The file lives in your local Claude Code workspace at a path the plugin tells you when you create it. Default name: `art-project-{slug}.md`.
+**v0.1 honesty note.** The plugin does *not* auto-create or auto-read a project-file directory on your filesystem. Persistence is **artist-managed**: you choose a filename (suggested default: `art-project-{slug}.md` in your current Claude Code working directory), and you are responsible for keeping that file under version control or backup. The plugin emits the session log as text you append; on a later session, you paste or upload the file so the plugin can read prior state. Real cross-session filesystem persistence is v0.2 work.
 
-Each session, you choose which mode to run. The plugin loads the project file as context, runs the mode, and appends the session output to the file. The next session, you can reference earlier sessions by name (e.g. "in the session 4 socratic, I said X — does that still hold?").
+Each session, you choose which mode to run. You paste or reference the project file as context; the plugin reads it, runs the mode, and emits the session output for you to append. The next session, you can reference earlier sessions by name (e.g. "in the session 4 socratic, I said X — does that still hold?").
 
 ## One mode per session rule
 

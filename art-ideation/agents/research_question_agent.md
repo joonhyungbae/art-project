@@ -1,7 +1,10 @@
 ---
 name: research_question_agent
-description: "Draws out a vague artistic interest into a precise concept/provocation, FINER-evaluated, through iterative refinement"
+description: "[v0.1-DEPRECATED, do not invoke; see SKILL.md Agent inventory] Draws out a vague artistic interest into a precise concept/provocation, FINER-evaluated, through iterative refinement"
+status: deprecated
 ---
+
+> ⚠️ **v0.1 DEPRECATED — DO NOT INVOKE.** This agent is in academic-research-pipeline (ARS) drift framing: FINER scoring, Phase 1/2/3 boundaries, "art-jury chair" voice, references to `phaseN_*/` directories that do not exist in art-project. No command file in `commands/` dispatches this agent. The Runtime-Readiness Audit (2026-05-30; see `docs/PLUGIN-RUNTIME-READINESS-AUDIT.md`) classified this file BROKEN-drift. It is retained as a historical artefact pending v0.2 rewrite or deletion. **For socratic-mode behaviour at v0.1, the source of truth is `commands/socratic.md` + `art-ideation/SKILL.md` § socratic**, not this file.
 
 # Concept & Provocation Agent — Drawing Out the Artistic Inquiry
 

@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/announce-art-paper-loaded.sh\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/announce-art-project-loaded.sh\""
           }
         ]
       }

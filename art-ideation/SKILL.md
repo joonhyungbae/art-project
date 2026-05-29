@@ -215,22 +215,26 @@ Six harm classes the skill tracks and discloses per [`POSITIONING.md`](../POSITI
 - Does **not** push to deliverables in `socratic` mode while exploratory intent persists.
 - Does **not** make art. Authorship of the eventual work stays with the artist.
 
-## Agent inventory (post-v0.2 cleanup)
+## Agent inventory — honest state at v0.1.0
 
-The `agents/` directory contains agents inherited from the parent suite that consume the new v0.2 reference layer. Some agents need rewriting in implementation work to fully align with v0.2 mode semantics; v0.1 ships with these agents as-is, with the skill prompts in this file taking precedence where they disagree.
+**Runtime-readiness audit on 2026-05-30** ([`docs/PLUGIN-RUNTIME-READINESS-AUDIT.md`](../docs/PLUGIN-RUNTIME-READINESS-AUDIT.md)) found that no command file in `commands/` currently dispatches any agent in `art-ideation/agents/` by name. The skill prompts in this file and the command-file prompts are what Claude executes at runtime; the agents are present for future-version dispatch and for human reference, not invoked in the v0.1 critical path.
 
-| Agent | Mode wiring | v0.1 status |
+Four agents have been rewritten to v0.2 mode semantics and four are still in the v0.1-paper-pipeline framing they were forked from. The table below names which is which so that no reader is misled about coverage.
+
+| Agent | v0.2 alignment | Notes |
 |---|---|---|
-| `socratic_mentor_agent.md` | `socratic` core | inherited; uses Frayling/Borgdorff/Sullivan; v0.2 rewrite pending |
-| `research_question_agent.md` | `socratic` provocation-question articulation | inherited; FINER-scoring framework; v0.2 rewrite pending |
-| `bibliography_agent.md` | `lineage` core | inherited; v0.2 wiring to East-Asian default routing pending |
-| `source_verification_agent.md` | `lineage` L3 anchor enforcement | inherited; works as-is |
-| `synthesis_agent.md` | `brief` integration | inherited; works as-is |
-| `devils_advocate_agent.md` | `rehearsal` Devil's-Advocate persona | inherited; Concession Threshold Protocol intact |
-| `editor_in_chief_agent.md` | `rehearsal` Chair-synthesis | inherited; v0.2 rewrite pending (formative-not-decisional reshape) |
-| `monitoring_agent.md` | `full` long-running project-file tracking | inherited; works as-is for cross-session state |
+| `socratic_mentor_agent.md` | **v0.2-aligned** | Pre-reflective articulation; references Frayling/Borgdorff/Sullivan. The most v0.2-ready of the inherited agents. |
+| `bibliography_agent.md` | **v0.2-aligned (partial)** | Used as a lineage-mode reference; East-Asian default-routing wiring is documented in the command file (`commands/lineage.md`), not in this agent. |
+| `devils_advocate_agent.md` | **v0.2-aligned** | Concession Threshold Protocol intact; reused by `rehearsal`. |
+| `editor_in_chief_agent.md` | **v0.2-aligned (partial)** | Chair-synthesis function intact; full formative-not-decisional reshape pending. |
+| `research_question_agent.md` | **DRIFT (deprecated)** | Still in academic-research-pipeline framing (FINER scoring, "art-jury chair" voice, references nonexistent `phaseN_*/` dirs). Not dispatched by any v0.1 command. Retained as historical artefact; do not invoke. |
+| `source_verification_agent.md` | **DRIFT (deprecated)** | ARS Phase-2 framing; references nonexistent `shared/references/art_research_evidence_model.md` and `acm_reference_format.md`. Not dispatched by any v0.1 command. Retained as historical artefact; do not invoke. |
+| `synthesis_agent.md` | **DRIFT (deprecated)** | ARS Phase-3 framing; references nonexistent `art_research_evidence_model.md` and `word_count_conventions.md`. Symlinked from `agents/synthesis_agent.md` at the suite root; that suite-level role is preserved, but the in-skill copy is not v0.2-aligned. Not dispatched by any v0.1 command. |
+| `monitoring_agent.md` | **DRIFT (deprecated)** | Academic literature-monitoring agent; zero mentions of v0.2 modes. Earlier drafts of this table assigned it to `full` mode's cross-session state; that assignment was incorrect and is retracted. The `full` mode's project-file management is currently honour-system, not agent-mediated. |
 
-See [`docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md`](../docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md) §7 Phase 3 for the v0.2 agent-rewrite implementation plan.
+**What this means in practice.** For v0.1 runtime, treat the SKILL.md mode sections and the command-file prompts as the source of truth. The four DRIFT-deprecated agents will be either deleted or rewritten in v0.2; until then their presence in the `agents/` directory is a historical-archive convenience, not a runtime asset.
+
+The v0.2 agent-rewrite plan lives at [`docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md`](../docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md) §7.
 
 ## Version Info
 

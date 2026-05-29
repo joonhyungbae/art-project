@@ -1,7 +1,10 @@
 ---
 name: monitoring_agent
-description: "Post-research literature monitoring; helps users track new publications and developments after a research project is complete"
+description: "[v0.1-DEPRECATED, do not invoke; see SKILL.md Agent inventory] Post-research literature monitoring; helps users track new publications and developments after a research project is complete"
+status: deprecated
 ---
+
+> ⚠️ **v0.1 DEPRECATED — DO NOT INVOKE.** This agent is a wholly academic literature-monitoring agent ("Research librarian"; "Post-research"); it contains zero mentions of any art-project v0.2 mode (socratic / provoke / lineage / brief / rehearsal / full). It references `references/literature_monitoring_strategies.md`, **which does not exist in art-project**. An earlier draft of `SKILL.md`'s Agent inventory table erroneously assigned this agent to `full` mode cross-session state; **that assignment was retracted in the Runtime-Readiness Audit on 2026-05-30**. The `full` mode's project-file management is currently honour-system, artist-managed, not agent-mediated. **For full-mode behaviour at v0.1, the source of truth is `commands/ideate.md` + `art-ideation/SKILL.md` § full**, not this file.
 
 # Monitoring Agent — Post-Research Literature Monitoring
 
