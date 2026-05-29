@@ -23,27 +23,50 @@ A typical project-file evolution:
 
 The Material Passport machinery inherited from the parent suite (originally for single-session pipeline orchestration) is repurposed as the **project-file schema** — persistent state across sessions, not a state machine.
 
-**Behavior on invocation:**
+**Behavior on invocation (v0.2 — minimal markdown persistence at `~/.art-project/projects/<codename>/project.md`).**
 
-**v0.1 honesty note.** The plugin does **not** auto-create or auto-read a project-file directory on the user's filesystem in v0.1. Persistence is **artist-managed**: the artist designates a filename (typical default: `art-project-{slug}.md` in the current Claude Code working directory), and the artist is responsible for keeping that file under version control or backup. The plugin treats the file as a context object Claude reads when the artist pastes/references it, and writes to it by emitting the session log for the artist to append. Real cross-session filesystem persistence is v0.2 work; this is the honest substitute.
+The plugin manages a single markdown file per project at `~/.art-project/projects/<codename>/project.md`. Plain markdown, no schema lock-in; the artist can still git-track it, edit it directly between sessions, copy it across machines. The plugin reads the file at session start and appends a session block at session end. The artist still owns the file — every write is shown before it lands, the artist can edit or refuse it, and direct edits between sessions are first-class.
+
+**Writability precheck (run before any of the branches below).** Attempt to ensure `~/.art-project/projects/` exists and is writable (e.g. `mkdir -p ~/.art-project/projects/` and a write probe). If the home directory is unwritable, read-only, or otherwise blocks the mechanism, fall back gracefully to the v0.1 **artist-managed** mode (artist designates a filename, pastes the file back next session, the plugin emits the session log as text for the artist to append) and warn explicitly: *"Couldn't write to `~/.art-project/projects/` ([reason]). Falling back to artist-managed mode — you'll need to designate a filename and paste the file back next session. The cross-session persistence guarantee is downgraded for this run."*
 
 1. **If the artist says this is a new project:**
-   - Ask what to call the project (working title or codename).
-   - Tell the artist the suggested filename (e.g. `art-project-{slug}.md`) and ask if they want a different path. Acknowledge that the *artist*, not the plugin, owns the file.
-   - Emit the project-file header (codename, created date, sessions counter starting at 1) and the first session block as text the artist should save.
+   - Ask what to call the project (working title or codename). Slugify if needed (lowercase, hyphens, ASCII).
+   - Run `mkdir -p ~/.art-project/projects/<codename>/` and create `~/.art-project/projects/<codename>/project.md` with a header block:
+     ```
+     # <codename>
+
+     - **Created:** YYYY-MM-DD
+     - **Sessions:** 1
+     - **Brief description:** <one-line description, asked from the artist>
+     ```
+   - Show the artist the path and the header that was written; offer to edit before continuing.
    - Ask: *"Where do you want to begin? `socratic` (no concept yet) / `provoke` (stuck) / `lineage` (positioning) / `brief` (have material, need a proposition document) — or just describe your state in natural language and I'll suggest."*
 
 2. **If the artist says this is an existing project:**
-   - Ask them to paste the project file or upload it as context.
-   - Once received, display a summary of the last 1–2 sessions.
+   - Scan `~/.art-project/projects/` for matching codenames (substring + slug match against the artist's mention).
+     - **Exactly one match:** read `~/.art-project/projects/<codename>/project.md` directly; no paste required.
+     - **Multiple matches:** list the candidate codenames with their `Created` dates and last-session dates, ask the artist to disambiguate.
+     - **No match:** fall back to the new-project flow above, noting that no existing project was found.
+   - Once the file is loaded, display a brief summary of the last 1–2 session blocks (date, mode, key outputs, any open re-entry markers; include any inter-session **Artist notes** the artist added directly).
    - Ask: *"You last worked on this on [date], in [mode]. The state was [summary]. Where to today? Continue [last mode] / move to [suggested next mode] / different mode / just talk."*
 
 3. **One mode per session.** Do not auto-chain socratic → provoke → lineage → brief → rehearsal. The temporal shape matters. If the artist wants to do multiple modes today, ask explicitly; do not pipeline.
 
-4. **End-of-session checkpoint.** Before closing the session, append to the project file:
-   - Date + mode + duration
-   - Key outputs (Pull Map fields touched / provocations marked / lineage entries added / brief fields filled / rehearsal critiques flagged)
-   - Open questions / re-entry markers for next session
+4. **End-of-session append.** Before closing the session, append a Session block to `~/.art-project/projects/<codename>/project.md` using this format **verbatim**:
+
+   ```
+   ---
+
+   ## Session N — YYYY-MM-DD HH:MM — <mode>
+
+   [Session output goes here verbatim — Concept Pull Map, provocation cards, lineage map, brief, rehearsal transcript, etc.]
+
+   ### Artist notes (optional; added between sessions by the artist directly)
+
+   ---
+   ```
+
+   Then increment the `Sessions:` counter in the header. Show the artist the appended block and the new counter value before writing; the artist can edit or refuse. If the writability precheck failed and we are in artist-managed fallback, emit the block as text for the artist to paste into their own file instead.
 
 **IRON RULE — no single-session compression.** Do not produce a Concept Brief and a Rehearsal in the same session unless the artist *explicitly* requests it and acknowledges that this contradicts the design's temporal-shape commitment. The default refusal: *"Brief and Rehearsal in the same session compresses what the design treats as a multi-week iteration. The marginal value of a same-day Rehearsal is low. Sleep on the Brief first; come back next week for Rehearsal. — or override with `--compress` if you really want to."*
 

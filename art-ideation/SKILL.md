@@ -157,7 +157,7 @@ The following are non-negotiable and apply across all modes:
 7. **Mandatory disclaimer on every rehearsal output.**
 8. **Refusal to rank.** Provocations, lineage entries, panel personas, and Brief drafts are not ranked by the skill. The artist decides.
 9. **Tradition tags are style affinity, not causal attribution.** See the honesty paragraph in the methodology reference.
-10. **Cross-session continuity.** `full` mode persists state across sessions; no single-session pipelining.
+10. **Cross-session continuity (v0.2 — HARD, was SOFT at v0.1).** `full` mode persists state across sessions via a real markdown file at `~/.art-project/projects/<codename>/project.md`. On invocation the skill reads the file (new-project flow if none, codename-scan if existing); at end of session it appends a verbatim Session block and increments the header counter. No single-session pipelining. Graceful fallback to v0.1 artist-managed mode if `~` is unwritable, with explicit warning. See [`commands/ideate.md`](../commands/ideate.md) "Behavior on invocation (v0.2 — minimal markdown persistence…)" for the full protocol.
 
 These rules implement the architectural commitments named in Claim B of the academic-contribution statement (synthesis spec §4.1): generation-evaluation separation (rule 1), tension-over-ranking (rules 2, 8), lineage-with-opposition (rules 3, 4), formative self-critique-rehearsal (rule 7), and tradition-tag-with-boundary discipline (rule 9).
 

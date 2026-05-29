@@ -69,7 +69,7 @@ Each IRON rule is classified:
 | 11 | 2-in-14-days friction warning (rehearsal) | `commands/rehearsal.md` "Architectural friction (consultative log at v0.2)" | **HARD (v0.2)** | Backed by `~/.art-project/rehearsal-log.jsonl` append-only log; skill reads, filters by codename within 14 days, fires warning at count ≥ 2. Was UNENFORCED at v0.1; promoted to HARD per v0.2 phase (a). Warning remains consultative (artist owns proceed/abort decision); graceful fallback to one-shot self-report if log unavailable. |
 | 12 | Concession Threshold Protocol (DA) | `commands/rehearsal.md:37`; `devils_advocate_agent.md:28-30,68,108` | **HARD via inheritance** | Full protocol in the agent file; no explicit dispatch from command, so context-import depends on Claude's file-search reflexes. |
 | 13 | No single-session compression (full) | `commands/ideate.md:44` | **HARD (refusal)** + **SOFT (predicate)** | Refusal language concrete; "same session" predicate depends on a project file that does not exist. |
-| 14 | Cross-session continuity / project-file persistence | `commands/ideate.md:26-44` | **SOFT** | Behaviour described, no concrete file path enforced, no agent assigned. Artist must manage the file themselves. |
+| 14 | Cross-session continuity / project-file persistence | `commands/ideate.md` "Behavior on invocation (v0.2 — minimal markdown persistence…)" | **HARD (v0.2)** | Backed by a real markdown file at `~/.art-project/projects/<codename>/project.md`. New project: `mkdir -p` the directory and write a header (codename, created date, sessions counter, brief description). Existing project: scan `~/.art-project/projects/` for codename match, read the file directly, summarise the last 1–2 session blocks. End of session: append a verbatim Session block and increment the counter. Was SOFT at v0.1 (artist-managed paste-back); promoted to HARD per v0.2 phase (b). Graceful fallback to artist-managed mode if `~` is unwritable, with explicit warning. |
 | 15 | Dialogue Health Indicator every 5 turns | `SKILL.md:168` | **SOFT** | Named at skill level, not bound into commands. |
 | 16 | Intent detection every 3 turns | `SKILL.md:166`; `commands/socratic.md:8` | **SOFT** | Socratic command presupposes the mechanism exists but does not define it. |
 | 17 | Tradition tags = style affinity, NOT causal attribution | `commands/provoke.md:10`; `SKILL.md:159` | **HARD** | Binding language; references the honesty paragraph in the reference layer. |
@@ -82,11 +82,11 @@ Each IRON rule is classified:
 
 **Phase 3 summary.** Of 23 named IRON-class rules:
 
-- **15 HARD-enforced** (good — these will surface at runtime; #11 promoted from UNENFORCED to HARD at v0.2 phase (a) via the `~/.art-project/rehearsal-log.jsonl` mechanism).
-- **6 SOFT-documented** (#3 partial, #10, #14, #15, #16, #23 — these depend on Claude's own discipline or on infrastructure that doesn't exist).
+- **16 HARD-enforced** (good — these will surface at runtime; #11 promoted from UNENFORCED to HARD at v0.2 phase (a) via the `~/.art-project/rehearsal-log.jsonl` mechanism; #14 promoted from SOFT to HARD at v0.2 phase (b) via the `~/.art-project/projects/<codename>/project.md` mechanism).
+- **5 SOFT-documented** (#3 partial, #10, #15, #16, #23 — these depend on Claude's own discipline or on infrastructure that doesn't exist).
 - **0 UNENFORCED at runtime** (v0.2 phase (a) closed the prior gap on #11; the 2-in-14-days friction warning now fires from real runtime state).
 
-The HARD set covers the rules the empirical paper validated (rules 7, 8, 19 for brief mode), plus the rules most user-facing for socratic, provoke, and lineage. **The rules most likely to fail silently are the rehearsal friction-history and the cross-session persistence in full mode** — both depend on infrastructure not present in v0.1.0.
+The HARD set covers the rules the empirical paper validated (rules 7, 8, 19 for brief mode), plus the rules most user-facing for socratic, provoke, and lineage. The two v0.1 silent-failure risks — rehearsal friction-history (#11) and cross-session persistence in full mode (#14) — are now both backed by real filesystem mechanisms under `~/.art-project/` (phase (a) and phase (b) respectively); both retain graceful fallback when the filesystem is unwritable.
 
 ---
 
