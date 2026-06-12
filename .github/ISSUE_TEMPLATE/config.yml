@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Wiki (EN / KO)
+    url: https://apesuite.org/plugins/
+    about: Most questions about how to use the plugin are answered in the wiki — FAQ, Troubleshooting, and Worked example sections.
+  - name: 🔒 Security / vulnerability reports
+    url: https://github.com/joonhyungbae/art-project/security/advisories/new
+    about: Please do NOT open a public issue for security problems. Use GitHub's private vulnerability reporting instead.
+  - name: ❓ Discussion / question
+    url: https://github.com/joonhyungbae/art-project/discussions
+    about: For open-ended questions about practice-based research, tradition tags, or whether your use case fits the plugin's scope, prefer Discussions over Issues.

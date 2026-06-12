@@ -1,0 +1,87 @@
+name: ✨ Feature request
+description: Propose a new mode, a new tradition tag, or an architectural change.
+title: "[feat] "
+labels: ["enhancement", "needs-design-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a feature. Before submitting, please confirm your proposal is **not** one of the following — each is off-spec by architectural commitment, and a feature request will be closed as "won't fix":
+        - **Ranking** of provocations, lineage entries, brief drafts, or rehearsal critiques. *Tension over ranking* is load-bearing.
+        - **Auto-filling** empty Concept Brief fields. *Stay-rough default* is load-bearing.
+        - **Erasing an Authentic Practice Boundary** (e.g. "make the plugin throw the dice for Cage"; "make the plugin author the LeWitt instruction").
+        - **Auto-converging** on a concept under exploratory intent.
+        - **Decisional self-critique** in rehearsal mode (it is formative-not-decisional by design).
+
+        If you believe one of those rules is wrong, that's a Discussion topic, not a feature request — please open a Discussion instead.
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation — what artist need is this responding to?
+      description: Tie it to a concrete pre-studio articulation situation, ideally a user-asymmetry-scope cohort (early-career / second-language / PaR-doctoral / grant-deadline / collective).
+      placeholder: |
+        e.g. "PaR doctoral candidates writing JAR expositions need a mode that …"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of feature
+      multiple: false
+      options:
+        - New tradition tag (entry in shared/references/art_ideation_methodology.md)
+        - New mode (7th mode)
+        - Change to an existing mode's output schema
+        - Documentation / wiki improvement
+        - Tooling / packaging / install path
+        - Internationalisation (new language)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the feature concretely.
+      placeholder: |
+        e.g. "Add a tradition tag for [Korean Dansaek-hwa / butoh / pansori / …] with the following Authentic Practice Boundary …"
+    validations:
+      required: true
+
+  - type: textarea
+    id: tradition-tag-fields
+    attributes:
+      label: (For tradition-tag additions only) — required entry fields
+      description: If proposing a tradition tag, fill in the schema; otherwise leave blank.
+      placeholder: |
+        Tradition: [Name]
+        Ideation mechanism: [How does the tradition theorise/practise idea-formation?]
+        Authentic Practice Boundary: [What does the method require that the plugin must defer to human execution?]
+        Contested in: [Which scholarly debates / counter-positions exist?]
+        Skill hook: [Which of the six modes would surface this entry?]
+        Citation(s): [Primary source — book / chapter / article, not Wikipedia.]
+    validations:
+      required: false
+
+  - type: textarea
+    id: design-fit
+    attributes:
+      label: How does this fit the five architectural commitments?
+      description: Generation-evaluation separation; tension-over-ranking; lineage-with-opposition; formative-not-decisional rehearsal; tradition-tag-with-Authentic-Practice-Boundary.
+      placeholder: |
+        e.g. "This respects tension-over-ranking because …"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have read [`POSITIONING.md`](https://github.com/joonhyungbae/art-project/blob/main/POSITIONING.md), the [v0.2 synthesis spec](https://github.com/joonhyungbae/art-project/blob/main/docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md), and [`CONTRIBUTING.md`](https://github.com/joonhyungbae/art-project/blob/main/CONTRIBUTING.md).
+          required: true
+        - label: I have read the [`CODE_OF_CONDUCT.md`](https://github.com/joonhyungbae/art-project/blob/main/CODE_OF_CONDUCT.md) and agree to follow it.
+          required: true

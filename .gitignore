@@ -44,18 +44,22 @@ ref/
 # this repo (they belong in the separate crs_paper repo); keep them local.
 data/
 
-# Per-paper pilot cases derive from copyrighted ACM proceedings (gold
-# transcription + inputs extracted from them) and would carry author identity
-# information for the SIGGRAPH Asia Art Papers reviewed. Keep them local; this
-# plugin repo no longer ships pilot data — `eval/` retains only the
-# instrumentation engine + synthetic test fixture.
-eval/pilot/sa*/
+# Per-paper pilot cases derive from copyrighted journal/proceedings sources
+# (Digital Creativity / Routledge–T&F, Leonardo / MIT Press, ISEA, SIGGRAPH
+# Asia ACM): the gold/paper.md files are transcriptions, and the input pack
+# carries author identity. While the companion paper is in double-anonymous
+# review at *Digital Creativity*, this plugin repo ships only the
+# instrumentation engine + synthetic fixture. Reproducibility data is held
+# locally and will be released through the paper's supplementary channel.
+eval/pilot/
 
 # art-project_paper/ is a separate sibling git repo for the Aslib JIM
 # Conceptual paper. It lives in the same parent directory only for
 # maintainer convenience; do not track it from this repo.
 art-project_paper/
 
-# MkDocs build output (deployed via GitHub Actions; not tracked in source).
-# The wiki source lives in wiki/ and is the canonical version.
+# Local Claude Code session settings (per-machine; permission caches and
+# absolute paths). Never tracked. Wiki / docs source lived in wiki/ in
+# v0.1; canonical wiki moved to apesuite.org/plugins/ on 2026-06-12.
+.claude/settings.local.json
 site/

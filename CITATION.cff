@@ -1,0 +1,50 @@
+# This CITATION.cff file is read by GitHub to render the "Cite this
+# repository" button (https://citation-file-format.github.io/). The plugin
+# is the worked example; the load-bearing scholarly contribution is the
+# companion paper (in submission). Cite the paper when it is in print;
+# this file is the citable handle for the artefact itself.
+
+cff-version: 1.2.0
+message: "If you use art-project in research, teaching, or practice, please cite this software entry. The companion paper is in submission to *Digital Creativity* (Routledge / Taylor & Francis); once published, prefer the paper citation."
+title: "art-project: a pre-studio articulation scaffold for practice-based artistic research (Claude Code plugin)"
+abstract: "A Claude Code plugin offering six modes (socratic / provoke / lineage / brief / rehearsal / ideate) for the propositional articulation phase that precedes studio work in practice-based artistic research. Encodes a cognitive-scaffold position (Clark & Chalmers 1998; Malafouris 2013; Penny 2017), a tradition-tag reference layer with Authentic Practice Boundaries, and a measured-harm disclosure. Bilingual English / Korean wiki at apesuite.org/plugins/."
+authors:
+  - family-names: Bae
+    given-names: Joon-Hyung
+    email: jh.bae@kaist.ac.kr
+    alias: joonhyungbae
+type: software
+version: 0.1.0
+date-released: "2026-05-24"
+license: CC-BY-NC-4.0
+repository-code: "https://github.com/joonhyungbae/art-project"
+url: "https://apesuite.org/plugins/"
+keywords:
+  - claude-code-plugin
+  - practice-based-research
+  - artistic-research
+  - creativity-support-tool
+  - cognitive-scaffold
+  - tradition-tag
+  - authentic-practice-boundary
+  - pre-studio-articulation
+  - concept-brief
+  - korean-art
+identifiers:
+  - type: url
+    value: "https://github.com/joonhyungbae/art-project"
+    description: "Source repository"
+  - type: url
+    value: "https://apesuite.org/plugins/"
+    description: "Bilingual EN / KO wiki (canonical user documentation)"
+preferred-citation:
+  type: software
+  title: "art-project: a pre-studio articulation scaffold for practice-based artistic research (Claude Code plugin)"
+  authors:
+    - family-names: Bae
+      given-names: Joon-Hyung
+      email: jh.bae@kaist.ac.kr
+  version: 0.1.0
+  year: 2026
+  url: "https://github.com/joonhyungbae/art-project"
+  license: CC-BY-NC-4.0

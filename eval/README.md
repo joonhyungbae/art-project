@@ -1,6 +1,8 @@
-# art-paper Reconstruction-Benchmark Harness
+# Reconstruction-Benchmark Harness
 
-Stdlib-only metric engine for instrumenting a art-paper reconstruction against a held-out gold art paper. It **instruments**; it does **not** score quality.
+Stdlib-only metric engine for instrumenting a model reconstruction against a held-out gold paper. It **instruments**; it does **not** score quality.
+
+This engine was developed for the companion paper currently in submission to *Digital Creativity* (Routledge / Taylor & Francis); the plugin ships the engine, not the data.
 
 ## What's here
 
@@ -11,9 +13,9 @@ Stdlib-only metric engine for instrumenting a art-paper reconstruction against a
 | `report_template.yaml` | report template, conforms to `shared/benchmark_report.schema.json` |
 | `fixtures/synthetic_case/` | a synthetic case proving the engine runs end-to-end |
 
-The engine is self-tested in `scripts/test_art_paper_eval.py` against the synthetic fixture only — no copyrighted SIGGRAPH Asia paper content lives in this repo.
+The engine is self-tested against the synthetic fixture only.
 
-> Pilot data, per-case extracted inputs, reconstructions, and aggregated results live outside this plugin (see `eval/pilot/sa*/` gitignore entry). The plugin ships only the harness code and the synthetic test fixture.
+> **Pilot data is not in this repo.** Per-case extracted inputs, gold transcriptions, model reconstructions, and aggregated results are gitignored under `eval/pilot/` (the whole directory) because the gold/paper.md files are transcriptions of paywalled journal/proceedings sources (Digital Creativity / Routledge–T&F, Leonardo / MIT Press, ISEA, SIGGRAPH Asia / ACM) and because the companion paper is currently under double-anonymous review. The reproducibility package — input packs, gold briefs, pre-registration hash, and per-case results — will be released through the paper's supplementary materials channel after acceptance. The plugin ships only the harness code and the synthetic test fixture.
 
 ## Metrics (`instrumentation.py`)
 

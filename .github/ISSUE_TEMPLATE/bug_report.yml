@@ -1,0 +1,92 @@
+name: 🐛 Bug report
+description: Report something the plugin does that contradicts its specification or documentation.
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug report. Before submitting, please confirm the issue is **not** one of:
+        - The plugin refusing to rank, auto-converge, or fill empty fields — these are load-bearing design rules, not bugs (see [`POSITIONING.md`](https://github.com/joonhyungbae/art-project/blob/main/POSITIONING.md)).
+        - The provocation mode going silent after delivery — this is "preserved unhelpfulness", documented.
+        - The lineage mode refusing to extend without artist-supplied initial candidates — this is by design.
+
+        If any of those apply, please open a Discussion instead.
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      description: From `.claude-plugin/plugin.json` `version` field or the latest CHANGELOG entry.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Which mode?
+      multiple: false
+      options:
+        - socratic
+        - provoke
+        - lineage
+        - brief
+        - rehearsal
+        - ideate
+        - intent routing / SessionStart announce
+        - other / not mode-specific
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: A clear, concise description of what the plugin did.
+      placeholder: |
+        e.g. /art-project:socratic auto-converged on turn 4 even though my replies remained exploratory.
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-expected
+    attributes:
+      label: What you expected (and the spec rule it relates to)
+      description: Name the documented behaviour that was violated.
+      placeholder: |
+        e.g. SKILL.md says "no auto-convergence under exploratory intent — HARD-bound by per-3-turn intent classification".
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: Minimal transcript showing the issue. **Please redact any personally identifying material in your prompts.**
+      render: text
+      placeholder: |
+        1. /art-project:socratic
+        2. (paste prompts and plugin replies)
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: Claude Code version, host OS, locale (en / ko / other).
+      placeholder: "Claude Code 1.x, macOS 14, ko"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have read [`POSITIONING.md`](https://github.com/joonhyungbae/art-project/blob/main/POSITIONING.md) and confirmed this is not a design choice.
+          required: true
+        - label: I have read the [`CODE_OF_CONDUCT.md`](https://github.com/joonhyungbae/art-project/blob/main/CODE_OF_CONDUCT.md) and agree to follow it.
+          required: true
