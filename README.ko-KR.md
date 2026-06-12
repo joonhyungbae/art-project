@@ -1,13 +1,29 @@
-# Art-project for Claude Code (한국어)
+# Art-Project for Claude Code (한국어)
 
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-D77757)](https://docs.claude.com/claude-code)
 [![Version](https://img.shields.io/badge/version-v0.1.0-blue)](https://github.com/joonhyungbae/art-project/releases)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![위키](https://img.shields.io/badge/wiki-KO%20%2F%20EN-blue)](https://apesuite.org/plugins/#/art-project/ko/index)
+[![Sponsor](https://img.shields.io/badge/sponsor-Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/crucify020v)
 
-> 영어판(권위 있는 정본): [README.md](README.md) · 📖 위키: [한국어](https://apesuite.org/plugins/#/art-project/ko/index) / [English](https://apesuite.org/plugins/)
+> 영어판(권위 있는 정본): [README.md](README.md) · 📖 위키: [한국어](https://apesuite.org/plugins/#/art-project/ko/index) / [English](https://apesuite.org/plugins/#/art-project/en/index)
 
 **실천 기반 예술 연구(practice-based artistic research)**를 위한 **스튜디오 진입 전 단계의 *언어화* 스캐폴드(pre-studio articulation scaffold)** Claude Code 플러그인입니다. **아이데이션 엔진이 아닙니다.** Penny / Ingold / Borgdorff의 비판 — 예술의 아이데이션은 비언어적·물질적이며 만듦과 분리되지 않는다 — 을 *받아들이고*, 플러그인의 범위를 아이데이션을 *둘러싼* 명제적 언어화 작업(그랜트 신청서, 박사 exposition, 레지던시 제안서, 협업자 브리핑)으로 한정했습니다. 실제 아이데이션은 작업실에서, 재료와 함께 일어납니다.
+
+---
+
+## 동반 플러그인
+
+**art-project**와 **art-paper**는 같은 메인테이너가 만든, 실천 기반 예술 연구를 위한 두 자매 Claude Code 플러그인으로, 프로젝트 생애의 양 끝을 담당합니다:
+
+| | 플러그인 | 단계 | 스캐폴딩하는 것 |
+|---|---|---|---|
+| **← 현재 위치** | **[art-project](https://github.com/joonhyungbae/art-project)** | *작품 이전* | 스튜디오 진입 전 언어화 — 충동 surfacing, 전통-태그 도발, 계보 위치잡기, Concept Brief, 자기비평 리허설 |
+| | **[art-paper](https://github.com/joonhyungbae/art-paper)** | *작품 이후* | 실천 기반 아트페이퍼 집필 — 탐구, 초안, ACM 인용, SIGGRAPH Asia 심사단, acmart LaTeX → PDF |
+
+흐름: **art-project** 개념 언어화 → *스튜디오에서 작품 제작* → **art-paper** 심사용 논문 집필. 각각 독립적으로 쓸 수 있고, 함께 쓰면 개념-투-출판 전 구간을 잇습니다.
+
+> 계보: 둘 다 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills)(Cheng-I Wu)에서 내려옵니다. art-paper가 이 스위트를 아트페이퍼 장르로 포크했고, art-project가 다시 art-paper에서 스튜디오 진입 전 단계로 피봇했습니다.
 
 ---
 
@@ -28,11 +44,13 @@
 - `/art-project:provoke` — *"막혔어. 제약을 던져줘."*
 - 자연어: *"새 프로젝트 같이 생각해줘."* — 의도 감지로 자동 라우팅, 라우팅 결정은 투명하게 announce.
 
-전체 walkthrough는 [위키](https://apesuite.org/plugins/#/art-project/ko/index)와 [QUICKSTART.md](QUICKSTART.md).
+**👉 [위키 — apesuite.org/plugins/#/art-project](https://apesuite.org/plugins/#/art-project/ko/index)** 와 [QUICKSTART.md](QUICKSTART.md) — 전체 walkthrough.
 
 ---
 
-## 6개 모드가 하는 일
+## 무엇을 하나
+
+스킬 하나(`art-ideation`), 모드 6개.
 
 | 슬래시 명령 | 산출물 | 핵심 규칙 |
 |---|---|---|
@@ -44,6 +62,16 @@
 | `/art-project:ideate` | 며칠/몇 주 간격 세션을 누적하는 장기 프로젝트 파일 `~/.art-project/projects/<codename>/project.md` (Smith & Dean iterative cyclic web) | 세션당 한 모드; 단일 세션 파이프라이닝 금지 |
 
 각 모드는 25개 이상 항목의 방법론 참조 layer에 wiring (Frayling, Borgdorff, Sullivan, Smith & Dean, Eno & Schmidt, LeWitt, Cage, Bogart, Bauhaus, Manovich, Penny, Dunne & Raby + 한국·동아시아 + HCI 선행). 전체 참조는 [위키](https://apesuite.org/plugins/#/art-project/ko/reference/tradition-tags).
+
+---
+
+## 설계 근거
+
+**인지적 스캐폴드(cognitive scaffold) 입장** (Clark & Chalmers 1998; Malafouris 2013; Penny 2017). 도구도 공저자도 아닌 중간 위치. 다섯 가지 아키텍처 commitment(생성–평가 분리; 랭킹보다 긴장; 대립을 포함한 계보; 형성적-비결정적 리허설; Authentic Practice Boundary와 짝지은 전통 태그)이 특정 PaR 입장을 operational하게 인코딩; 전통 태그는 **Authentic Practice Boundary**(각 인용 방법이 요구하지만 플러그인이 *시뮬레이션하지 않는* 것)와 짝지어집니다.
+
+> *예.* Cage chance operations: 플러그인이 procedure (어떤 I Ching, 어떤 dice protocol)를 *제안*만 함. **주사위는 작가가 던집니다.** 작가가 procedure를 수행하는 *시간*이 작품의 일부이고, LLM이 chance result를 생성하면 그 방법의 구성적 특징이 무너집니다.
+
+자세히: [인지적 스캐폴드](https://apesuite.org/plugins/#/art-project/ko/philosophy/cognitive-scaffold), [Frayling 분류](https://apesuite.org/plugins/#/art-project/ko/philosophy/frayling-typology), [진정성 실천 경계](https://apesuite.org/plugins/#/art-project/ko/reference/authentic-practice-boundaries), [측정된 위해](https://apesuite.org/plugins/#/art-project/ko/philosophy/measured-harms), 그리고 [v0.2 합성 spec](docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md).
 
 ---
 
@@ -63,21 +91,11 @@
 
 ---
 
-## 설계 근거
-
-**인지적 스캐폴드(cognitive scaffold) 입장** (Clark & Chalmers 1998; Malafouris 2013; Penny 2017). 도구도 공저자도 아닌 중간 위치. 세 가지 핵심 아키텍처 commitment + 두 가지 종속 규율이 특정 PaR 입장을 operational하게 인코딩; 전통 태그는 **Authentic Practice Boundary**(각 인용 방법이 요구하지만 플러그인이 *시뮬레이션하지 않는* 것)와 짝지어집니다.
-
-> *예.* Cage chance operations: 플러그인이 procedure (어떤 I Ching, 어떤 dice protocol)를 *제안*만 함. **주사위는 작가가 던집니다.** 작가가 procedure를 수행하는 *시간*이 작품의 일부이고, LLM이 chance result를 생성하면 그 방법의 구성적 특징이 무너집니다.
-
-자세히: [인지적 스캐폴드](https://apesuite.org/plugins/#/art-project/ko/philosophy/cognitive-scaffold), [Frayling 분류](https://apesuite.org/plugins/#/art-project/ko/philosophy/frayling-typology), [진정성 실천 경계](https://apesuite.org/plugins/#/art-project/ko/reference/authentic-practice-boundaries), [측정된 위해](https://apesuite.org/plugins/#/art-project/ko/philosophy/measured-harms), 그리고 [v0.2 합성 spec](docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md).
-
----
-
 ## 동반 논문
 
 출판된 사례 15편에 대한 재구성-벤치마크 준수 감사(**90개 generative-layer 셀에 걸쳐 ex-nihilo 날조 0건** — 사전등록된 hash-frozen 기준으로 검증; 케이스별 전체 데이터는 논문 게재 확정 시 supplementary materials로 공개)가 ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI)에 투고 단계. 작업 중인 초안은 심사 중에는 로컬에 보관되며, 재현성 패키지(input pack, gold brief, 사전등록 hash, 케이스별 결과)는 게재 확정 후 논문 supplementary 채널로 공개됩니다.
 
-플러그인은 worked example이고; 기여는 플러그인이 인스턴스화하는 프레임워크입니다. 현역 작가 대상 사용자 연구는 다음 논문으로 시퀀싱됨.
+플러그인은 worked example이고; 기여는 플러그인이 인스턴스화하는 프레임워크입니다. 현역 작가 대상 사용자 연구는 다음 논문으로 시퀀싱됨. 이 방법론 감사는 **art-paper**와 공유하는 [동반 논문](https://github.com/joonhyungbae/art-paper#companion-paper)입니다.
 
 ---
 
@@ -95,15 +113,38 @@ Companion paper: docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md
 
 ---
 
-## 출처 및 기여자
+## 출처
 
 **메인테이너.** 배준형 (`joonhyungbae` GitHub; `jh.bae@kaist.ac.kr`). v0.2 설계 종합(Frayling 3층 하이브리드 자기위치, 인지적 스캐폴드 framing, 진정성 실천 경계 아키텍처, 6모드 reshape, 측정된 위해 공개)은 메인테이너의 작업입니다.
 
 **계보.** [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) v3.9.4.2 ([Cheng-I Wu](https://github.com/Imbad0202)) → art-paper v0.1.0 → art-project v0.1.0. 장르 중립 안전 기계장치(L3 인용 신뢰성 게이트, Concession Threshold Protocol, intent detection, 라우팅 규율)는 ARS에서 변경 없이 상속됨. 메인테이너는 diff용 pristine ARS 클론을 `ref/academic-research-skills/`에 로컬로 보관; 이 디렉토리는 gitignore되며 공개 플러그인 배포에는 포함되지 않습니다.
 
+**4-에이전트 설계 비평** (2026-05-24) — v0.2 설계는 네 명의 전문 에이전트 비평에서 종합되었습니다: 예술 연구 방법론자(PaR / Frayling / Borgdorff / Sullivan), HCI / AI-creativity 연구자(Shneiderman / Cherry-Latulipe / Davis / Wordcraft-Sparks), 현역 작가 스튜디오측 리뷰, Devil's Advocate(Penny / Ingold / Borgdorff / Wittgenstein / Illich의 전제 공격).
+
 ---
 
-## Changelog (최근)
+## 저장소 구조
+
+```text
+art-project/
+├── art-ideation/
+│   ├── SKILL.md                       # 단일 스킬 spec
+│   ├── agents/                        # v0.2 정렬 4개 + deprecated/ 아래 archive 4개
+│   ├── references/ + templates/       # in-skill 참조와 (deprecated) 템플릿
+│   └── examples/                      # in-skill 예시 (v0.1-deprecated; 위키 참고)
+├── commands/                          # 6개 슬래시 커맨드 파일 (bare name: brief, ideate, …)
+├── shared/references/                 # 방법론 참조 + 용어집 + 라우팅
+├── docs/                              # 설계 spec / 감사 / 검증 / 운영
+├── ref/academic-research-skills/      # pristine ARS 참조 (gitignore; 로컬 전용)
+├── hooks/ + scripts/                  # SessionStart hook + announce 스크립트
+├── .claude-plugin/{plugin,marketplace}.json
+└── README{,.ko-KR}.md, LICENSE, NOTICE, SECURITY, CHANGELOG, MODE_REGISTRY,
+    POSITIONING, QUICKSTART
+```
+
+---
+
+## 변경 이력 (최근)
 
 전체 이력은 [CHANGELOG.md](CHANGELOG.md) 참고.
 
