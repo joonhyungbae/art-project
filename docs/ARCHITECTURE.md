@@ -1,4 +1,8 @@
-# art-paper Art-Paper Pipeline Architecture (v0.1.0)
+# art-paper Pipeline Architecture (v0.1.0) — DEPRECATED (pre-pivot)
+
+> ⚠️ **DEPRECATED.** This document describes the **predecessor** `art-paper` 4-skill pipeline architecture. art-project v0.1.0 dropped the paper-authoring pipeline and ships a single skill (`art-ideation`) with six modes; this multi-stage pipeline architecture is no longer in effect. For the current architecture, see [`MODE_REGISTRY.md`](../MODE_REGISTRY.md), [`POSITIONING.md`](../POSITIONING.md), and the [v0.2 synthesis spec](design/2026-05-24-art-project-v0.2-synthesis-spec.md). Retained as provenance only.
+
+---
 
 > Forked from academic-research-skills (ARS) v3.9.4.2. The genre-neutral pipeline state machine — stages, checkpoints, integrity gates, Material Passport handoff — is inherited unchanged; this doc reskins the genre layer (empirical-science → practice-based art research) and renames the four skills. The internal version markers on individual agents/schemas below are inherited ARS provenance, not art-paper-era version numbers; the suite itself is v0.1.0.
 

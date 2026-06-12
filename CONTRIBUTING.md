@@ -22,12 +22,12 @@ guidance lives on the wiki.
    plugin defers to human execution. Without that field, the entry is not
    merge-ready.
 
-3. **Companion paper is in double-anonymous review.** Until the paper is
-   accepted, the maintainer cannot accept contributions that would link
-   reviewer identity to repository identity (e.g. PRs whose
-   author bio names a known co-author of a paper currently in review at
-   *Digital Creativity* or sibling venues). This restriction lifts at paper
-   acceptance.
+3. **Companion paper is in peer review.** A reconstruction-benchmark audit
+   paper is in submission to *Digital Creativity*. The plugin itself is
+   public; the paper draft and per-case reproducibility data are held
+   locally and will be released through the paper's supplementary-materials
+   channel after acceptance. Contributions to the plugin can proceed
+   independently of that review timeline.
 
 ## Where to start
 
@@ -46,8 +46,8 @@ guidance lives on the wiki.
       typo. PRs that change the architectural commitments are out of
       scope; open an issue first.
 - [ ] No pilot data or copyrighted source material added under `eval/pilot/`
-      (the entire directory is gitignored for copyright + double-anonymous
-      reasons).
+      (the entire directory is gitignored: `gold/paper.md` files are
+      transcriptions of paywalled journal/proceedings sources).
 - [ ] No paper-specific tracked content beyond what is already in the repo;
       maintainer's working paper sits in the sibling `art-project_paper/` repo.
 - [ ] If you added a tradition tag, the entry includes: tradition name,

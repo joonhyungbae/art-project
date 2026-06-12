@@ -15,7 +15,7 @@ This engine was developed for the companion paper currently in submission to *Di
 
 The engine is self-tested against the synthetic fixture only.
 
-> **Pilot data is not in this repo.** Per-case extracted inputs, gold transcriptions, model reconstructions, and aggregated results are gitignored under `eval/pilot/` (the whole directory) because the gold/paper.md files are transcriptions of paywalled journal/proceedings sources (Digital Creativity / Routledge–T&F, Leonardo / MIT Press, ISEA, SIGGRAPH Asia / ACM) and because the companion paper is currently under double-anonymous review. The reproducibility package — input packs, gold briefs, pre-registration hash, and per-case results — will be released through the paper's supplementary materials channel after acceptance. The plugin ships only the harness code and the synthetic test fixture.
+> **Pilot data is not in this repo.** Per-case extracted inputs, gold transcriptions, model reconstructions, and aggregated results are gitignored under `eval/pilot/` (the whole directory) because the `gold/paper.md` files are transcriptions of paywalled journal/proceedings sources (Digital Creativity / Routledge–T&F, Leonardo / MIT Press, ISEA, SIGGRAPH Asia / ACM). The reproducibility package — input packs, gold briefs, pre-registration hash, and per-case results — will be released through the companion paper's supplementary-materials channel after acceptance. The plugin ships only the harness code and the synthetic test fixture.
 
 ## Metrics (`instrumentation.py`)
 

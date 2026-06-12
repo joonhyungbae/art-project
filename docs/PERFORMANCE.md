@@ -1,4 +1,8 @@
-# art-paper Performance Notes
+# art-paper Performance Notes — DEPRECATED (pre-pivot)
+
+> ⚠️ **DEPRECATED.** This document describes per-stage token budgets and long-running-session guidance for the **predecessor** `art-paper` 4-skill paper-authoring pipeline. art-project v0.1.0 dropped that pipeline and ships a single skill (`art-ideation`) with six modes; the per-stage performance shape described below is no longer in effect. Retained as provenance only.
+
+---
 
 > Forked from academic-research-skills (ARS). Token budgets and long-running-session guidance are inherited from the genre-neutral pipeline machinery; the genre layer (art-paper authoring, jury review) does not materially change the per-stage token shape. The version tags below (v3.x) are inherited ARS provenance — the art-paper suite is v0.1.0.
 

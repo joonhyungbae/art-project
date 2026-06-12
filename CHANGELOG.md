@@ -64,9 +64,9 @@
   - 10 paper-scoped references inside `art-ideation/references/`: `apa7_style_guide`, `equator_reporting_guidelines`, `ethics_checklist`, `irb_decision_tree`, `systematic_review_protocol`, `systematic_review_toolkit`, `preregistration_guide`, `literature_monitoring_strategies`, `crossref_api_protocol`, `openalex_api_protocol`.
   - 5 paper-scoped templates: `evidence_assessment_template`, `literature_matrix_template`, `preregistration_template`, `prisma_protocol_template`, `prisma_report_template`.
   - 6 paper-scoped examples: `handoff_to_paper`, `policy_analysis`, `review_mode`, `systematic_review`, `fact_check_mode`, `exploratory_research`.
-- **Created (new commands):** `art-socratic.md`, `art-provoke.md`, `art-lineage.md`, `art-brief.md`, `art-rehearsal.md`, `art-ideate.md`. Model routing: opus for `socratic` / `rehearsal` / `ideate` (high-leverage); sonnet for `provoke` / `lineage` / `brief`.
-- **Symlinks fixed** — broken `skills/creative-*` symlinks (pointing to non-existent paths) removed; clean `skills/art-ideation` → `../art-ideation` created. `agents/synthesis_agent.md` repointed to `../art-ideation/agents/synthesis_agent.md`.
-- **Preserved (intentionally):** `art-project_paper/` — the maintainer's working paper draft (Aslib JIM submission) lives in the repo but is **not** part of the plugin distribution. It is a separate writing project.
+- **Created (new commands):** `commands/socratic.md`, `provoke.md`, `lineage.md`, `brief.md`, `rehearsal.md`, `ideate.md` — bare filenames; Claude Code namespaces them as `/art-project:<name>`. Model routing: opus for `socratic` / `rehearsal` / `ideate` (high-leverage); sonnet for `provoke` / `lineage` / `brief`.
+- **Symlinks fixed** — broken `skills/creative-*` symlinks (pointing to non-existent paths) removed; clean `skills/art-ideation` → `../art-ideation` created. (The earlier suite-root `agents/synthesis_agent.md` symlink was subsequently removed in the 2026-05-30 v0.2 honesty sweep — see milestone entry below.)
+- **Preserved (intentionally):** `art-project_paper/` — the maintainer's working paper draft (Digital Creativity submission) lives in a sibling directory but is **not** part of the plugin distribution and is gitignored. It is a separate writing project.
 
 ### Manifest changes
 
@@ -92,15 +92,14 @@ Per v0.2 synthesis spec §4.1, four claims:
 - **Claim C** (Epistemological) — cognitive scaffold position (Clark & Chalmers; Malafouris; Penny).
 - **Claim D** (Negative / boundary) — pre-studio articulation phase as structurally distinct from downstream PaR phases.
 
-### Venue path (revised 2026-05-25 — conceptual paper first, empirical track later)
+### Venue path (revised 2026-06 — Digital Creativity first; conceptual venues sequenced after)
 
-1. **Aslib JIM (Aslib Journal of Information Management, Emerald)** *primary, v0.1 publication.* **Conceptual paper** classification (4,000–10,000 w, structured abstract, Harvard / agsm refs). No user-study requirement. Submission feasible within weeks; the existing LaTeX skeleton at `art-project_paper/` is the working draft.
-2. ***Digital Creativity (Routledge / T&F)*** sibling — methods paper, ~7,000 w. Submitted after Aslib JIM is in review (avoiding simultaneous-submission conflicts).
-3. **ACM C&C 2027 / 2028** — empirical track. Activates after the conceptual paper is submitted; requires Study 1 (CSI + NASA-TLX pilot, N=12) plus the longitudinal artist study.
-4. ***Journal for Artistic Research (JAR)*** sibling — as an exposition, not a traditional article. Best done after Phase 5 publication establishes the framework.
-5. ***Leonardo* / *ISEA* / *SIGGRAPH Art Papers*** practitioner-facing — once empirical data from artist users exists (Studies 2–4 + longitudinal).
+1. ***Digital Creativity* (Routledge / Taylor & Francis, AHCI)** — *primary, v0.1 submission.* Reconstruction-benchmark compliance audit paper, ≤7,000 w, unstructured abstract ≤200 w, double-anonymous review. The existing LaTeX draft at `art-project_paper/` is the working file (gitignored sibling directory).
+2. **ACM C&C 2027 / 2028** — empirical track. Activates after Digital Creativity is in review; requires Study 1 (CSI + NASA-TLX pilot, N=12) plus the longitudinal artist study.
+3. ***Journal for Artistic Research (JAR)*** sibling — as an exposition, not a traditional article. Best done after the Digital Creativity submission is published and the framework is established.
+4. ***Leonardo* / *ISEA* / *SIGGRAPH Art Papers*** practitioner-facing — once empirical data from artist users exists (Studies 2–4 + longitudinal).
 
-**Rationale for resequencing (vs. original v0.2 empirical-first path):** Aslib JIM Conceptual paper accepts the framework on its conceptual merits without empirical data, dissolving the 4–7-month delay the empirical-first path imposed before any publication exists. The reverse ordering (empirical first, conceptual second) would have left the framework un-argued in print as supplementary material to an empirical paper, which is structurally weaker. See v0.2 synthesis spec §4.2 + §7 for the full rationale.
+**Rationale for resequencing (2026-06 revision):** The earlier plan (Aslib JIM Conceptual paper first; Digital Creativity sibling later) was superseded after Stage 4.5 review concluded the reconstruction-benchmark methodology paper was both ready and a more direct fit for *Digital Creativity*'s scope (creative-AI evaluation, no user-study gating). Digital Creativity is therefore the v0.1 publication target; Aslib JIM is dropped from the path.
 
 ### Measured-harm disclosure (model-card style, new)
 
@@ -113,16 +112,16 @@ Six harm classes named and disclosed (Mitchell et al. 2019 Model Cards format; B
 5. Conviviality / normalization risk (Illich 1973; Turkle 2015; Hui 2016).
 6. Bounded user population (per user-asymmetry scope).
 
-### Phase plan (revised 2026-05-25 — conceptual paper first, empirical track later)
+### Phase plan (revised 2026-06 — Digital Creativity first)
 
 - **Phase 0b** (2026-05-24 commit): v0.2 synthesis spec + reference-layer rewrite + project-level docs. ✅
 - **Phase 1**: drop paper-scoped reference files; expand methodology reference E section with verified Korean / East-Asian sources. *Partial — drops done; E expansion pending library + consultation work.*
 - **Phase 2**: drop paper-authoring skill dirs and commands; rename `art-inquiry/` → `art-ideation/`; fix symlinks. ✅
-- **Phase 3**: rewrite `art-ideation/SKILL.md` for 6 v0.2 modes; create 6 new commands. *SKILL.md + commands done.* Agent-prompt rewrites for Authentic Practice Boundary enforcement + `full` mode project-file persistence pending v0.2 implementation work.
+- **Phase 3**: rewrite `art-ideation/SKILL.md` for 6 v0.2 modes; create 6 new commands. ✅ — SKILL.md + commands done; v0.2 phases (a)/(b) added real-state persistence for `rehearsal` and `ideate`.
 - **Phase 4**: project-level docs (README / QUICKSTART / CLAUDE.md / CHANGELOG / POSITIONING / MODE_REGISTRY). ✅
-- **Phase 5 — Aslib JIM Conceptual paper** *(was empirical pilot before 2026-05-25 revision)*: draft per v0.2 spec §4.3 outline using existing LaTeX skeleton at `art-project_paper/`. **v0.1 publication target.** Off-platform, in progress.
-- **Phase 6 — Aslib JIM revisions + parallel *Digital Creativity* draft**: off-platform.
-- **Phase 7 — Empirical track activation** *(begins after Aslib JIM submission, in parallel with Phase 6)*: Study 1 design + OSF pre-registration + IRB; recruit N=12; run pilot. Output: ACM C&C 2027 / 2028 submission. Off-platform.
+- **Phase 5 — *Digital Creativity* paper** *(was Aslib JIM Conceptual before 2026-06 revision)*: reconstruction-benchmark compliance audit paper drafted; in submission. **v0.1 publication target.** Off-platform.
+- **Phase 6 — *Digital Creativity* revisions**: off-platform; awaits review.
+- **Phase 7 — Empirical track activation** *(begins after Digital Creativity is in review)*: Study 1 design + OSF pre-registration + IRB; recruit N=12; run pilot. Output: ACM C&C 2027 / 2028 submission. Off-platform.
 - **Phase 8 — JAR exposition** (after Phase 5 published). Off-platform.
 - **Phase 9 — Studies 2–4 + 6-week longitudinal artist study.** Output: *Leonardo* / *ISEA* / *SIGGRAPH Art Papers* practitioner-facing paper. Off-platform, v0.2 / v0.3.
 

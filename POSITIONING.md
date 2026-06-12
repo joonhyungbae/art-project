@@ -44,9 +44,7 @@ For artists whose propositional articulation is already fluent, the plugin is st
 
 art-project is **not** a brainstorm-app dressed in art vocabulary. Its load-bearing decisions are grounded in a reference layer that models prior research on artistic ideation. Each ideation mode wires to specific entries — see [`shared/references/art_ideation_methodology.md`](shared/references/art_ideation_methodology.md) — through declared **tradition tags** with **Authentic Practice Boundaries** that name what the plugin defers to human execution.
 
-The design decisions — that articulation is constraint-based detour rather than free association; that provocations are held in tension with counter-formulations rather than ranked; that lineage maps include *opposition* and *blind-spot* entries rather than only kin; that the rehearsal critique is *formative* rather than decisional — were made from inside practice. The maintainer works at once as an exhibiting artist, an author of practice-based art papers at peer-reviewed venues, and an AI researcher publishing in the field.
-
-> Author identity is withheld here while the accompanying methodology paper is under double-blind review. Specific venues, institutions, and works are deliberately omitted for the same reason; full attribution will be restored once review is complete.
+The design decisions — that articulation is constraint-based detour rather than free association; that provocations are held in tension with counter-formulations rather than ranked; that lineage maps include *opposition* and *blind-spot* entries rather than only kin; that the rehearsal critique is *formative* rather than decisional — were made from inside practice. The maintainer (Joon-Hyung Bae) works at once as an exhibiting artist, an author of practice-based art papers at peer-reviewed venues, and an AI researcher publishing in the field.
 
 License: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Restricts commercial use by design, to keep the tool free for art and academic communities.
 
@@ -98,8 +96,8 @@ Full disclosure detail in the v0.2 synthesis spec §6.
 
 **Failure modes are made visible, not hidden.**
 - The Devil's Advocate inside `rehearsal` is subject to the inherited **Concession Threshold Protocol** — no premature concessions; concession only at rebuttal score ≥4 on the 1–5 scale.
-- The Socratic mentor classifies **exploratory vs goal-oriented intent** every 3 turns and refuses to drive toward deliverables while exploration signals are still present.
-- The **Dialogue Health Indicator** self-checks every 5 turns for agreement spirals, premature convergence, and conflict avoidance, and injects a challenge when the pattern is detected.
+- `socratic` HARD-binds **exploratory vs goal-oriented intent** classification every 3 turns and refuses to drive toward deliverables while exploration signals are still present.
+- Inside `rehearsal`, the Devil's Advocate runs a **Dialogue Health** sub-check every 5 turns for agreement spirals, premature convergence, and conflict avoidance, and injects a challenge when the pattern is detected (v0.2 phase c demoted this from a suite-wide mechanism to a `rehearsal`-scoped sub-heuristic).
 - The **Persona Collapse Detector** in `rehearsal` flags when all four personas raise the same concern (the rehearsal has lost its multi-perspectivity).
 
 These mechanisms are genre-neutral and inherited unchanged from the parent suite. They exist so that the artist can see where the AI might be flattening their thinking — not so that the AI can claim it is always right.

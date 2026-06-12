@@ -13,7 +13,7 @@ Inside Claude Code:
 /plugin install art-project
 ```
 
-That installs one skill (`art-ideation`) plus six `/art-*` slash commands.
+That installs one skill (`art-ideation`) plus six `/art-project:*` slash commands (Claude Code namespaces them by plugin name; the command files in `commands/` use bare mode names — `socratic.md`, `provoke.md`, …).
 
 ## Step 2: Launch
 

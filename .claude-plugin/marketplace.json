@@ -1,15 +1,16 @@
 {
   "name": "art-project",
   "owner": {
-    "name": "art-project maintainer (withheld during double-blind review)",
-    "url": "https://github.com/joonhyungbae/art-project"
+    "name": "Joon-Hyung Bae",
+    "email": "jh.bae@kaist.ac.kr",
+    "url": "https://github.com/joonhyungbae"
   },
   "description": "art-project — Claude Code plugin: a pre-studio articulation scaffold for practice-based artistic research. Scaffolds the propositional articulation work around artistic ideation (impulse surfacing, tradition-tagged provocations, lineage positioning, Concept Brief drafting, self-critique rehearsal) rather than claiming to participate in ideation itself. Cognitive-scaffold position; Frayling layered hybrid (research FOR + INTO + THROUGH); scoped to artists where articulation is a bottleneck. Pivoted from art-paper v0.1.0 (forked from academic-research-skills v3.9.4.2); paper-authoring scope dropped; design substantially revised post four-agent critique (see docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md).",
   "plugins": [
     {
       "name": "art-project",
       "source": "./",
-      "description": "Single-skill plugin: art-ideation, six modes. socratic = pre-reflective dialogue surfacing impulse / fragments / constraints / refusals / residue (distinct from Schön's reflection-in-action). provoke = tradition-tagged provocations with preserved unhelpfulness (no auto-interpretation) and per-method Authentic Practice Boundaries. lineage = retrieval not ideation, requires artist-supplied initial candidates, mandatory training-data bias header, Korean/East-Asian default routing on Korean sessions. brief = Concept Brief with epistemic fields (proposition / anti-proposition / disconfirmation / Frayling-type declaration) and stay-rough default (no auto-smoothing). rehearsal (renamed from panel) = Self-Critique Rehearsal, formative not decisional, with persona-collapse detector and architectural friction against repeated use. full = long-running project file across days/weeks (Smith & Dean iterative cyclic web), not single-session pipeline. Inherits L3 citation-faithfulness, intent detection, Concession Threshold, Dialogue Health Indicator. Ships with measured-harm disclosure (model-card style).",
+      "description": "Single-skill plugin: art-ideation, six modes. socratic = pre-reflective dialogue surfacing impulse / fragments / constraints / refusals / residue (distinct from Schön's reflection-in-action); HARD-bound intent classification every 3 turns. provoke = tradition-tagged provocations with preserved unhelpfulness (no auto-interpretation) and per-method Authentic Practice Boundaries. lineage = retrieval not ideation, requires artist-supplied initial candidates, mandatory training-data bias header, Korean/East-Asian default routing on Korean sessions. brief = Concept Brief with epistemic fields (proposition / anti-proposition / disconfirmation / Frayling-type declaration) and stay-rough default (no auto-smoothing). rehearsal = Self-Critique Rehearsal (formative not decisional) with persona-collapse detector, Devil's-Advocate Dialogue-Health sub-check, and consultative friction backed by ~/.art-project/rehearsal-log.jsonl. ideate = long-running project file at ~/.art-project/projects/<codename>/project.md, across days/weeks (Smith & Dean iterative cyclic web), one mode per session. Inherits L3 citation-faithfulness, intent detection, Concession Threshold Protocol. Ships with measured-harm disclosure (model-card style).",
       "version": "0.1.0",
       "license": "CC-BY-NC-4.0"
     }

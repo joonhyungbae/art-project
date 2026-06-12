@@ -1,6 +1,8 @@
 # art-project v0.2 — Design + Paper Synthesis Spec
 
-**Status:** Design synthesis (Phase 0b — supersedes v0.1 pivot spec on the points addressed below)
+> **Reader note (added 2026-06-13).** The §4 Venue path in this spec leads with *Aslib JIM* as the v0.1 publication target. **That decision was superseded in 2026-06**: the reconstruction-benchmark methodology paper was rerouted to ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI) as the v0.1 publication; *Aslib JIM* is no longer on the path. See [`CHANGELOG.md`](../../CHANGELOG.md) §"Venue path (revised 2026-06)" for the current sequence. This spec preserves the 2026-05 decision rationale; do not treat its venue claims as current.
+
+**Status:** Design synthesis (Phase 0b — supersedes v0.1 pivot spec on the points addressed below). Venue-path section §4 superseded 2026-06; see CHANGELOG.
 **Date:** 2026-05-24
 **Author note:** This document synthesizes the outputs of a four-agent design critique:
 

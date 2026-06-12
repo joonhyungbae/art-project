@@ -21,7 +21,7 @@ A typical project-file evolution:
 2026-06-15  → artist takes Brief to actual curator
 ```
 
-The Material Passport machinery inherited from the parent suite (originally for single-session pipeline orchestration) is repurposed as the **project-file schema** — persistent state across sessions, not a state machine.
+The plugin persists a project-file across sessions — a single plain-markdown file per project — so that `ideate` is a long-running scaffold across days/weeks, not a single-session orchestration.
 
 **Behavior on invocation (v0.2 — minimal markdown persistence at `~/.art-project/projects/<codename>/project.md`).**
 

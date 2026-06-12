@@ -33,4 +33,14 @@ per Borgdorff criticisability discipline — return to this field before submiss
 
 Plausible-sounding filler in these fields is a failure mode, not a success. Empty + acknowledged > filled + fabricated.
 
+**IRON RULE — mandatory AI-assistance disclosure footer.** Every Concept Brief output ends with a verbatim footer:
+
+```
+---
+
+> *Drafted with AI articulation support via the **art-project** Claude Code plugin (https://github.com/joonhyungbae/art-project, CC-BY-NC 4.0). The plugin enforced the 10-field schema and the stay-rough discipline; voice, propositions, and refusals are the artist's. Authentic Practice Boundaries: ideation happens in the studio, not the chat; this Brief is the propositional articulation for it.*
+```
+
+The artist can remove this footer before submitting to a venue whose AI-disclosure policy differs, but the **default** is for the Brief to be self-disclosing — addressing harm class 4 (Authorship-perception shift; Wordcraft / Sparks / ghostwriter literature) at the artefact-level rather than relying on the artist to remember.
+
 See [`art-ideation/SKILL.md`](../art-ideation/SKILL.md) for the full mode specification.

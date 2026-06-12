@@ -20,6 +20,8 @@
 
 스킬 하나(`art-ideation`), 모드 6개. 슬래시 명령 `/art-project:*`로 호출. 출력은 Markdown이라 별도 빌드 도구 불필요.
 
+> **플랜 안내.** 6개 명령 중 3개(`socratic`, `rehearsal`, `ideate`)는 load-bearing IRON RULE(의도 분류, 페르소나 안정성, 다중 세션 통합)을 다루므로 **Claude Opus**를 요청합니다. 나머지 3개(`provoke`, `lineage`, `brief`)는 Sonnet 기본. Claude 플랜에 Opus 접근이 없다면 `socratic` / `rehearsal` / `ideate`는 플랜 기본 모델로 fall through — 대부분의 규칙은 작동하지만 페르소나·의도 분류 discipline은 약해집니다. 위키에 모델 tier note 있음.
+
 **예시로 하나 실행:**
 
 - `/art-project:socratic` — *"뭔가에 끌리는데 아직 작품이 뭔지는 모르겠어."*
@@ -57,7 +59,7 @@
 
 **아닌 경우.** 명제적 언어화가 이미 유창한 작가에게는 구조적으로 부적합 (Claude를 직접 사용하면 됩니다). 즉흥·의례·구술처럼 *언어화 자체를 거부하는* 전통에도 부적합. 경계를 명시하는 것 자체가 설계의 일부 — [philosophy / measured harms §6](https://apesuite.org/plugins/#/art-project/ko/philosophy/measured-harms) 참고.
 
-이중 언어: 영어 기본, 한국어 세션에서 한국·동아시아 라우팅 자동 활성.
+이중 언어: 영어 기본, 한국어 세션에서 한국·동아시아 라우팅 자동 활성. **정직한 disclosure:** 참조 layer의 동아시아 섹션은 가장 미숙(v0.1.0 기준 3 entries; 확장은 자료조사 진행 중). 한국어 세션에서 `lineage`는 학습-데이터 편향 헤더를 띄우지만 여전히 한국어 1차 사료보다 영어권 한국학 자료로 fallback될 수 있음. 한국어 경험은 v0.2 참조 확장 전까지 *씨앗 수준*이지 영어와 *완전히 병렬*은 아니라고 다뤄 주세요.
 
 ---
 
@@ -73,7 +75,7 @@
 
 ## 동반 논문
 
-출판된 사례 15편에 대한 재구성-벤치마크 준수 감사(**90개 generative-layer 셀에 걸쳐 ex-nihilo 날조 0건**, hash-frozen 사전등록 파일과 함께)가 ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI)에 투고 단계. 작업 중인 초안: [`art-project_paper/`](https://github.com/joonhyungbae/art-project_paper).
+출판된 사례 15편에 대한 재구성-벤치마크 준수 감사(**90개 generative-layer 셀에 걸쳐 ex-nihilo 날조 0건** — 사전등록된 hash-frozen 기준으로 검증; 케이스별 전체 데이터는 논문 게재 확정 시 supplementary materials로 공개)가 ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI)에 투고 단계. 작업 중인 초안은 심사 중에는 로컬에 보관되며, 재현성 패키지(input pack, gold brief, 사전등록 hash, 케이스별 결과)는 게재 확정 후 논문 supplementary 채널로 공개됩니다.
 
 플러그인은 worked example이고; 기여는 플러그인이 인스턴스화하는 프레임워크입니다. 현역 작가 대상 사용자 연구는 다음 논문으로 시퀀싱됨.
 
@@ -95,9 +97,9 @@ Companion paper: docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md
 
 ## 출처 및 기여자
 
-**메인테이너.** 배준형. v0.2 설계 종합(Frayling 3층 하이브리드 자기위치, 인지적 스캐폴드 framing, 진정성 실천 경계 아키텍처, 6모드 reshape, 측정된 위해 공개)은 메인테이너의 작업; 동반 논문이 double-anonymous 심사 중인 동안 신원은 보류되고 승인 시 복원됩니다.
+**메인테이너.** 배준형 (`joonhyungbae` GitHub; `jh.bae@kaist.ac.kr`). v0.2 설계 종합(Frayling 3층 하이브리드 자기위치, 인지적 스캐폴드 framing, 진정성 실천 경계 아키텍처, 6모드 reshape, 측정된 위해 공개)은 메인테이너의 작업입니다.
 
-**계보.** [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) v3.9.4.2 ([Cheng-I Wu](https://github.com/Imbad0202)) → art-paper v0.1.0 → art-project v0.1.0. 장르 중립 안전 기계장치 (L3 인용 신뢰성 게이트, Concession Threshold Protocol, intent detection, 라우팅 규율)는 ARS에서 변경 없이 상속됨; pristine ARS 참조는 [`ref/academic-research-skills/`](ref/academic-research-skills/)에 diff용으로 보존.
+**계보.** [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) v3.9.4.2 ([Cheng-I Wu](https://github.com/Imbad0202)) → art-paper v0.1.0 → art-project v0.1.0. 장르 중립 안전 기계장치(L3 인용 신뢰성 게이트, Concession Threshold Protocol, intent detection, 라우팅 규율)는 ARS에서 변경 없이 상속됨. 메인테이너는 diff용 pristine ARS 클론을 `ref/academic-research-skills/`에 로컬로 보관; 이 디렉토리는 gitignore되며 공개 플러그인 배포에는 포함되지 않습니다.
 
 ---
 

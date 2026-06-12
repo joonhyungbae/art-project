@@ -20,6 +20,8 @@ A Claude Code plugin: a **pre-studio articulation scaffold** for practice-based 
 
 That gives you one skill (`art-ideation`) with six modes, accessed via `/art-project:*` slash commands. Outputs are Markdown; no toolchain required.
 
+> **Plan note.** Three of the six commands (`socratic`, `rehearsal`, `ideate`) request **Claude Opus** because they carry the load-bearing IRON RULES (intent classification, persona stability, multi-session synthesis). The other three (`provoke`, `lineage`, `brief`) default to Claude Sonnet. If your Claude plan does not include Opus access, `socratic` / `rehearsal` / `ideate` will fall through to your plan's default model — most rules still apply, but persona and intent-classification discipline is weaker. The wiki has a model-tier note.
+
 **Try one of:**
 
 - `/art-project:socratic` — *"I have a vague pull toward something."*
@@ -57,13 +59,13 @@ For artists where **propositional articulation is a bottleneck**:
 
 **Not** for artists whose articulation is already fluent (use Claude directly), nor for traditions where articulation is constitutively unwanted (improvisational, ritual, oral). Naming the boundary is part of the design — see [philosophy / measured harms §6](https://apesuite.org/plugins/#/art-project/en/philosophy/measured-harms).
 
-Bilingual: English default, Korean / East-Asian routing on Korean sessions.
+Bilingual: English default, Korean / East-Asian routing on Korean sessions. **Honest disclosure:** the East-Asian section of the reference layer is the most under-developed (3 entries as of v0.1.0; expansion pending library work). On Korean sessions, `lineage` surfaces a training-data bias header and may still fall back to anglophone Korean-studies sources rather than Korean-language primary sources. Treat the Korean experience as *seeded* rather than *fully parallel* to the English one until v0.2 reference expansion.
 
 ---
 
 ## Design rationale
 
-**Cognitive-scaffold position** (Clark & Chalmers 1998; Malafouris 2013; Penny 2017). Neither inert tool nor co-author. Three architectural commitments plus two subordinate disciplines operationalise specific practice-based research positions; tradition-tag attribution comes with explicit **Authentic Practice Boundaries** naming what each cited method requires that the plugin does *not* simulate.
+**Cognitive-scaffold position** (Clark & Chalmers 1998; Malafouris 2013; Penny 2017). Neither inert tool nor co-author. Five architectural commitments (generation–evaluation separation; tension-over-ranking; lineage-with-opposition; formative-not-decisional rehearsal; tradition-tag-with-Authentic-Practice-Boundary) operationalise specific practice-based research positions; tradition-tag attribution comes with explicit **Authentic Practice Boundaries** naming what each cited method requires that the plugin does *not* simulate.
 
 > *Example.* For Cage chance operations, the plugin proposes the procedure (which I Ching method, which dice protocol); **the artist throws the dice**. The time the artist spends performing the procedure is part of the work. The plugin does not execute the chance operation, because doing so would re-route the constitutive feature of the method.
 
@@ -73,7 +75,7 @@ Detail: [cognitive scaffold](https://apesuite.org/plugins/#/art-project/en/philo
 
 ## Companion paper
 
-A reconstruction-benchmark compliance audit (15 published case studies, **zero ex-nihilo fabrications across 90 generative-layer cells**, pre-registered with hash-frozen file) is in submission to ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI). Working draft in [`art-project_paper/`](https://github.com/joonhyungbae/art-project_paper).
+A reconstruction-benchmark compliance audit (15 published case studies, **zero ex-nihilo fabrications across 90 generative-layer cells** — verified against pre-registered, hash-frozen criteria; full per-case data will ship with the paper's supplementary materials on acceptance) is in submission to ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI). The working draft is held locally during peer review; the reproducibility package (input packs, gold briefs, pre-registration hash, per-case results) is released through the paper's supplementary-materials channel after acceptance.
 
 The plugin is the worked example; the contribution is the framework it instantiates. User studies with practising artists are sequenced as the next paper.
 
@@ -95,9 +97,9 @@ Companion paper: docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md
 
 ## Provenance
 
-**Maintainer.** Joon-Hyung Bae. The v0.2 design synthesis (Frayling layered hybrid self-positioning, cognitive-scaffold framing, tradition-tag-with-Authentic-Practice-Boundary architecture, six-mode reshape, measured-harm disclosure) is the maintainer's work; identity is held during double-anonymous review of the companion paper and restored at acceptance.
+**Maintainer.** Joon-Hyung Bae (`joonhyungbae` on GitHub; `jh.bae@kaist.ac.kr`). The v0.2 design synthesis (Frayling layered hybrid self-positioning, cognitive-scaffold framing, tradition-tag-with-Authentic-Practice-Boundary architecture, six-mode reshape, measured-harm disclosure) is the maintainer's work.
 
-**Lineage.** [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) v3.9.4.2 ([Cheng-I Wu](https://github.com/Imbad0202)) → art-paper v0.1.0 → art-project v0.1.0. The genre-neutral safety machinery (L3 citation-faithfulness gate, Concession Threshold Protocol, intent detection, routing discipline) is inherited unchanged from ARS; a pristine ARS reference lives at [`ref/academic-research-skills/`](ref/academic-research-skills/) for diffing.
+**Lineage.** [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) v3.9.4.2 ([Cheng-I Wu](https://github.com/Imbad0202)) → art-paper v0.1.0 → art-project v0.1.0. The genre-neutral safety machinery (L3 citation-faithfulness gate, Concession Threshold Protocol, intent detection, routing discipline) is inherited unchanged from ARS. The maintainer keeps a local pristine ARS clone under `ref/academic-research-skills/` for diffing; that directory is gitignored and not part of the published plugin.
 
 **Four-agent design critique** (2026-05-24) — the v0.2 design was synthesised from four specialist agent critiques: artistic-research methodologist (PaR / Frayling / Borgdorff / Sullivan), HCI / AI-creativity researcher (Shneiderman / Cherry-Latulipe / Davis / Wordcraft-Sparks), practising-artist studio-side review, Devil's Advocate (Penny / Ingold / Borgdorff / Wittgenstein / Illich attacks on the premise).
 
@@ -115,8 +117,7 @@ art-project/
 ├── commands/                          # 6 slash-command files (bare names: brief, ideate, …)
 ├── shared/references/                 # methodology reference + glossaries + routing
 ├── docs/                              # design spec / audits / verification / ops
-├── art-project_paper/                 # companion paper (separate git repo, sibling)
-├── ref/academic-research-skills/      # pristine ARS reference (for diffing)
+├── ref/academic-research-skills/      # pristine ARS reference (gitignored; local-only)
 ├── hooks/ + scripts/                  # SessionStart hook + announce script
 ├── .claude-plugin/{plugin,marketplace}.json
 └── README{,.ko-KR}.md, LICENSE, NOTICE, SECURITY, CHANGELOG, MODE_REGISTRY,

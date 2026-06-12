@@ -9,7 +9,8 @@ Usage:
     python paper_reconstructor.py <case_dir>
 
 Env:
-    ANTHROPIC_API_KEY (sourced from /home/jhbae/creative-research-skills/.env if not in env)
+    ANTHROPIC_API_KEY — required. Sourced from the environment, or from a
+    .env file at $ART_PROJECT_DOTENV / .env (parent dir) / .env.example.
 """
 from __future__ import annotations
 import os
@@ -19,12 +20,25 @@ from pathlib import Path
 
 import anthropic
 
-DOTENV = Path("/home/jhbae/creative-research-skills/.env")
-if not os.environ.get("ANTHROPIC_API_KEY") and DOTENV.exists():
-    for line in DOTENV.read_text().splitlines():
-        if line.startswith("ANTHROPIC_API_KEY="):
-            os.environ["ANTHROPIC_API_KEY"] = line.split("=", 1)[1].strip()
-            break
+
+def _load_dotenv_if_needed() -> None:
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        return
+    candidates = []
+    if (override := os.environ.get("ART_PROJECT_DOTENV")):
+        candidates.append(Path(override))
+    candidates.append(Path(__file__).resolve().parent.parent / ".env")
+    candidates.append(Path.cwd() / ".env")
+    for dotenv in candidates:
+        if not dotenv.exists():
+            continue
+        for line in dotenv.read_text().splitlines():
+            if line.startswith("ANTHROPIC_API_KEY="):
+                os.environ["ANTHROPIC_API_KEY"] = line.split("=", 1)[1].strip()
+                return
+
+
+_load_dotenv_if_needed()
 
 MODEL = "claude-sonnet-4-5-20250929"
 MAX_TOKENS = 16384

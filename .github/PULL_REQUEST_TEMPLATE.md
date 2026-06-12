@@ -38,7 +38,7 @@ Not all five apply to every PR; check the ones relevant to your scope.
 
 ## Data hygiene
 
-- [ ] **No pilot data added under `eval/pilot/`** (the whole directory is gitignored for copyright + double-anonymous reasons; reproducibility data is held locally until paper acceptance).
+- [ ] **No pilot data added under `eval/pilot/`** (the whole directory is gitignored because `gold/paper.md` files are transcriptions of paywalled journal/proceedings sources; reproducibility data is held locally until the companion paper is accepted, then released as supplementary materials).
 - [ ] **No copyrighted source text added** under any path (paper transcriptions, exhibition records, gallery materials).
 - [ ] **No secrets or credentials.** API keys live in `.env` (gitignored). `.env.example` is the only tracked env file.
 - [ ] **No absolute paths** (`/home/<user>/…` etc.) in tracked files.

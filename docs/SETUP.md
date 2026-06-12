@@ -1,4 +1,8 @@
-# art-paper Setup
+# art-paper Setup — DEPRECATED (v0.1 ARS-era; pre-pivot)
+
+> ⚠️ **DEPRECATED — DO NOT FOLLOW.** This document describes setup for the **predecessor** `art-paper` plugin (the 4-skill paper-authoring suite that art-project pivoted away from in 2026-05-24). For the current art-project install path, see [`README.md`](../README.md) §Install, [`QUICKSTART.md`](../QUICKSTART.md), and the wiki at <https://apesuite.org/plugins/>. The instructions below reference skill directories (`art-inquiry`, `art-paper`, `art-reviewer`, `art-pipeline`) and clone endpoints (`joonhyungbae/art-paper`) that **no longer exist** in art-project v0.1.0. Retained as provenance only.
+
+---
 
 Prerequisites and optional setup for art-paper, the practice-based art-paper fork of Academic Research Skills (ARS). If you only need Markdown output and the default Claude Opus 4.7 pipeline, you can skip most of this — see "Minimum viable setup" below.
 

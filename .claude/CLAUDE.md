@@ -75,11 +75,11 @@ When auto-routing, announce: *"Starting in socratic mode (exploratory intent det
 
 ## IRON RULES (genre-neutral, inherited from parent suite)
 
-- **No auto-convergence under exploratory intent** (socratic mode).
-- **Preserved unhelpfulness** on Oblique-style provocations (provoke mode goes silent after the provocation; no auto-interpretation).
+- **No auto-convergence under exploratory intent** — `socratic` only; HARD-bound by per-3-turn intent classification (v0.2 phase c).
+- **Preserved unhelpfulness** on Oblique-style provocations — `provoke` only; goes silent after the provocation; no auto-interpretation.
 - **Concession Threshold Protocol** for the Devil's Advocate inside `rehearsal` — no premature concessions; concession only at rebuttal score ≥4 on the 1–5 scale.
-- **Dialogue Health Indicator** every 5 turns — agreement spirals, premature convergence, conflict avoidance — injects a challenge when pattern detected.
-- **Intent detection** every 3 turns — exploratory vs goal-oriented classification.
+- **Dialogue Health** sub-check — scoped to `rehearsal`'s Devil's Advocate (v0.2 phase c demoted this from a suite-wide every-5-turns mechanism to a `rehearsal`-only sub-heuristic).
+- **Intent detection** — HARD-bound only in `socratic` (per-3-turn classification); other modes do not run this.
 
 ## Measured-harm disclosure (model-card style)
 
@@ -98,10 +98,10 @@ Six harm classes — see [`POSITIONING.md`](../POSITIONING.md) and v0.2 synthesi
 art-project/
 ├── art-ideation/                         # The single skill
 │   ├── SKILL.md                          # 6-mode specification
-│   ├── agents/                           # inherited agents (some v0.2-rewrite pending)
+│   ├── agents/                           # 4 v0.2-aligned + 4 archived under deprecated/
 │   ├── references/                       # skill-local references
-│   ├── templates/                        # research_brief_template.md (v0.2-rewrite pending → concept_brief_template.md)
-│   └── examples/                         # socratic_guided_research.md (v0.2-rewrite pending)
+│   ├── templates/                        # research_brief_template.md (v0.1 DEPRECATED, banner in file)
+│   └── examples/                         # socratic_guided_research.md (v0.1 DEPRECATED, banner in file)
 ├── shared/
 │   └── references/                       # cross-skill references
 │       ├── art_ideation_methodology.md   # the load-bearing v0.2 reference
@@ -109,8 +109,7 @@ art-project/
 │       ├── intent_clarification_protocol.md
 │       └── protected_hedging_phrases.md
 ├── skills/art-ideation                   # symlink → ../art-ideation
-├── agents/synthesis_agent.md             # symlink → ../art-ideation/agents/synthesis_agent.md
-├── commands/                             # 6 slash commands (art-socratic, art-provoke, art-lineage, art-brief, art-rehearsal, art-ideate)
+├── commands/                             # 6 slash commands (bare names: socratic, provoke, lineage, brief, rehearsal, ideate) → resolve as /art-project:<name>
 ├── .claude-plugin/
 │   ├── plugin.json
 │   └── marketplace.json
@@ -118,8 +117,8 @@ art-project/
 │   ├── 2026-05-24-art-project-v0.2-synthesis-spec.md  ← READ FIRST
 │   ├── 2026-05-24-art-project-v0.1-pivot-spec.md      ← superseded; provenance
 │   └── 2026-05-22-art-paper-v0.1-fork-spec.md         ← earlier (paper-era); provenance
-├── art-project_paper/                    # maintainer's working paper (Aslib JIM submission) — NOT part of the plugin
-├── ref/academic-research-skills/         # pristine ARS reference for diffing
+├── art-project_paper/                    # maintainer's working paper (Digital Creativity submission) — NOT part of the plugin; gitignored
+├── ref/academic-research-skills/         # pristine ARS reference for diffing (gitignored; local-only)
 ├── POSITIONING.md                        # public positioning
 ├── MODE_REGISTRY.md                      # 6-mode single source of truth
 ├── README.md, README.ko-KR.md
@@ -137,12 +136,11 @@ Per v0.2 synthesis spec §4.1, four claims:
 - **Claim C** (Epistemological): cognitive scaffold position (Clark & Chalmers; Malafouris; Penny).
 - **Claim D** (Negative / boundary): pre-studio articulation phase as structurally distinct from downstream PaR phases.
 
-**Venue path (revised 2026-05-25 — conceptual paper first, empirical track later):**
-1. **Aslib JIM Conceptual paper** (Emerald, no user-study requirement) — *primary, v0.1 publication.* Conceptual classification, 4,000–10,000 w, structured abstract.
-2. ***Digital Creativity* (Routledge)** — sibling methods paper, after Aslib JIM is in review.
-3. **ACM C&C 2027 / 2028** — empirical track activates after the conceptual paper is submitted; requires Study 1 (N=12 CSI / NASA-TLX pilot).
-4. ***Journal for Artistic Research (JAR)*** exposition — after Phase 5 publication establishes the framework.
-5. ***Leonardo* / *ISEA* / *SIGGRAPH Art Papers*** — practitioner-facing, after longitudinal data exists.
+**Venue path (revised 2026-06 — Digital Creativity first; conceptual venues sequenced after):**
+1. ***Digital Creativity* (Routledge / Taylor & Francis, AHCI)** — *primary, v0.1 submission.* Reconstruction-benchmark compliance audit paper, ≤7,000 w, unstructured abstract ≤200 w.
+2. **ACM C&C 2027 / 2028** — empirical track activates after Digital Creativity is in review; requires Study 1 (N=12 CSI / NASA-TLX pilot).
+3. ***Journal for Artistic Research (JAR)*** exposition — after Phase 5 publication establishes the framework.
+4. ***Leonardo* / *ISEA* / *SIGGRAPH Art Papers*** — practitioner-facing, after longitudinal data exists.
 
 ## Version Info
 
