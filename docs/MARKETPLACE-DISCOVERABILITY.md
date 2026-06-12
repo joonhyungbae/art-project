@@ -52,7 +52,7 @@ lineage-mapping
 
 While at the **About** panel, also set:
 - **Description**: *A Claude Code plugin: pre-studio articulation scaffold for practice-based artistic research. Not an ideation engine. Six modes (socratic / provoke / lineage / brief / rehearsal / full) grounded in a tradition-tag reference layer with authentic-practice boundaries.*
-- **Website**: `https://joonhyungbae.github.io/art-project/`
+- **Website**: `https://apesuite.org/plugins/` (apesuite is the canonical wiki host as of 2026-06-12)
 - Check ☑ **Include in the home page** under Releases, Packages.
 
 GitHub topics surface the repo on `github.com/topics/<topic>` pages and in GitHub search. The first three (`claude-code-plugin`, `claude-code`, `anthropic`) target the Claude Code ecosystem; the remainder target the practice-based-research and creativity-support-tool research communities.
@@ -141,7 +141,7 @@ Not an ideation engine. The plugin scaffolds the propositional work AROUND ideat
 - /art-project:rehearsal — 4-persona stress test, formative not decisional
 - /art-project:ideate — long-running project file across weeks
 
-EN/KO wiki: https://joonhyungbae.github.io/art-project/
+EN/KO wiki: https://apesuite.org/plugins/
 Install: /plugin marketplace add joonhyungbae/art-project
 Paper (in submission): *Digital Creativity* (Routledge / T&F).
 License: CC-BY-NC 4.0.
@@ -159,7 +159,7 @@ NOT for: artists whose articulation is already fluent; oral, ritual, improvisati
 After acceptance, the paper's cover letter and author-bio note are the most impactful discoverability move you can make. The paper's *Digital Creativity* readership overlaps exactly with the plugin's target user population. Two passive moves:
 
 - Cover-letter pointer to the wiki URL alongside the reproducibility-package URL.
-- Author-bio note mentioning the plugin: *"…and is the maintainer of `art-project`, the cognitive-scaffold plugin the paper documents (https://joonhyungbae.github.io/art-project/)."*
+- Author-bio note mentioning the plugin: *"…and is the maintainer of `art-project`, the cognitive-scaffold plugin the paper documents (https://apesuite.org/plugins/)."*
 
 Both are zero-effort once the paper is in author-proofs.
 

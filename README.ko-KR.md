@@ -3,10 +3,10 @@
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-D77757)](https://docs.claude.com/claude-code)
 [![Version](https://img.shields.io/badge/version-v0.1.0--ideation-blue)](https://github.com/joonhyungbae/art-project/releases)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
-[![위키](https://img.shields.io/badge/wiki-KO%20%2F%20EN-blue)](https://joonhyungbae.github.io/art-project/ko/)
+[![위키](https://img.shields.io/badge/wiki-KO%20%2F%20EN-blue)](https://apesuite.org/plugins/#/art-project/ko/index)
 
 > 영어판(권위 있는 정본): [README.md](README.md). 이 문서는 한국어 요약이며 세부 변경 이력은 영어판을 따릅니다.
-> 📖 위키: [한국어](https://joonhyungbae.github.io/art-project/ko/) / [English](https://joonhyungbae.github.io/art-project/)
+> 📖 위키: [한국어](https://apesuite.org/plugins/#/art-project/ko/index) / [English](https://apesuite.org/plugins/)
 
 **실천 기반 예술 연구(practice-based artistic research)**를 위한 **스튜디오 진입 전 단계의 *언어화* 스캐폴드(pre-studio articulation scaffold)** Claude Code 플러그인입니다. **아이데이션 엔진이 아닙니다.** Penny / Ingold / Borgdorff의 비판 — 예술의 ideation은 비언어적이고 물질적이며 만듦과 분리되지 않는다 — 을 *받아들이고*, 플러그인의 범위를 ideation을 *둘러싼* 명제적 언어화 작업으로 한정했습니다. 실제 ideation은 작업실에서, 재료와 함께 일어납니다.
 

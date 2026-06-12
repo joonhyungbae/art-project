@@ -69,7 +69,7 @@ Plugin agents (v0.2-aligned, lazy-dispatch via SKILL.md):
 
 Four legacy agents (research_question, source_verification, synthesis, monitoring) carry v0.1-DEPRECATED banners — do not invoke. See art-ideation/SKILL.md Agent inventory + docs/PLUGIN-RUNTIME-READINESS-AUDIT.md.
 
-User wiki: https://joonhyungbae.github.io/art-project/ (EN) / /ko/ (KO).
+User wiki (apesuite, canonical): https://apesuite.org/plugins/ (EN default) / https://apesuite.org/plugins/#/art-project/ko/index (KO).
 License: CC-BY-NC 4.0. Design spec: docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md."
     ;;
 esac

@@ -3,9 +3,9 @@
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-D77757)](https://docs.claude.com/claude-code)
 [![Version](https://img.shields.io/badge/version-v0.1.0--ideation-blue)](https://github.com/joonhyungbae/art-project/releases)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
-[![Wiki](https://img.shields.io/badge/wiki-EN%20%2F%20KO-blue)](https://joonhyungbae.github.io/art-project/)
+[![Wiki](https://img.shields.io/badge/wiki-EN%20%2F%20KO-blue)](https://apesuite.org/plugins/)
 
-> [한국어 README](README.ko-KR.md) · 📖 Wiki: [English](https://joonhyungbae.github.io/art-project/) / [한국어](https://joonhyungbae.github.io/art-project/ko/)
+> [한국어 README](README.ko-KR.md) · 📖 Wiki: [English](https://apesuite.org/plugins/) / [한국어](https://apesuite.org/plugins/#/art-project/ko/index)
 
 A Claude Code plugin: a **pre-studio articulation scaffold** for practice-based artistic research. **Not an ideation engine.** The Penny / Ingold / Borgdorff critique that artistic ideation is non-linguistic, material, and inseparable from making is *accepted*; the plugin scopes itself to the propositional articulation work *around* ideation. The actual ideation happens in your studio, with material.
 
