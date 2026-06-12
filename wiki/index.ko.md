@@ -1,4 +1,4 @@
-# art-project
+# Art-project
 
 실천 기반 예술 연구(practice-based artistic research)를 위한 **스튜디오 진입 전 단계의 *언어화* 스캐폴드(pre-studio articulation scaffold)** Claude Code 플러그인입니다.
 

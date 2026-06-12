@@ -1,4 +1,4 @@
-# art-project
+# Art-project
 
 A Claude Code plugin: a **pre-studio articulation scaffold** for practice-based artistic research.
 
