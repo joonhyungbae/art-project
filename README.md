@@ -91,14 +91,6 @@ Bilingual: English default, Korean / East-Asian routing on Korean sessions. **Ho
 
 ---
 
-## Companion paper
-
-A reconstruction-benchmark compliance audit (15 published case studies, **zero ex-nihilo fabrications across 90 generative-layer cells** — verified against pre-registered, hash-frozen criteria; full per-case data will ship with the paper's supplementary materials on acceptance) is in submission to ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI). The working draft is held locally during peer review; the reproducibility package (input packs, gold briefs, pre-registration hash, per-case results) is released through the paper's supplementary-materials channel after acceptance.
-
-The plugin is the worked example; the contribution is the framework it instantiates. User studies with practising artists are sequenced as the next paper. The same methodology audit is the [companion paper](https://github.com/joonhyungbae/art-paper#companion-paper) shared with **art-paper**.
-
----
-
 ## License & attribution
 
 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Share + adapt + attribute, non-commercial use only.
@@ -108,7 +100,6 @@ art-project (Version 0.1.0).
 Pivoted from art-paper v0.1.0; ultimately forked from
 Academic Research Skills (Cheng-I Wu) v3.9.4.2.
 https://github.com/joonhyungbae/art-project
-Companion paper: docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md
 ```
 
 ---

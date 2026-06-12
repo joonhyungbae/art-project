@@ -91,14 +91,6 @@
 
 ---
 
-## 동반 논문
-
-출판된 사례 15편에 대한 재구성-벤치마크 준수 감사(**90개 generative-layer 셀에 걸쳐 ex-nihilo 날조 0건** — 사전등록된 hash-frozen 기준으로 검증; 케이스별 전체 데이터는 논문 게재 확정 시 supplementary materials로 공개)가 ***Digital Creativity*** (Routledge / Taylor & Francis, AHCI)에 투고 단계. 작업 중인 초안은 심사 중에는 로컬에 보관되며, 재현성 패키지(input pack, gold brief, 사전등록 hash, 케이스별 결과)는 게재 확정 후 논문 supplementary 채널로 공개됩니다.
-
-플러그인은 worked example이고; 기여는 플러그인이 인스턴스화하는 프레임워크입니다. 현역 작가 대상 사용자 연구는 다음 논문으로 시퀀싱됨. 이 방법론 감사는 **art-paper**와 공유하는 [동반 논문](https://github.com/joonhyungbae/art-paper#companion-paper)입니다.
-
----
-
 ## 라이선스 & 인용
 
 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). 공유·수정·표기 가능, 비상업 사용 한정.
@@ -108,7 +100,6 @@ art-project (Version 0.1.0).
 Pivoted from art-paper v0.1.0; ultimately forked from
 Academic Research Skills (Cheng-I Wu) v3.9.4.2.
 https://github.com/joonhyungbae/art-project
-Companion paper: docs/design/2026-05-24-art-project-v0.2-synthesis-spec.md
 ```
 
 ---
